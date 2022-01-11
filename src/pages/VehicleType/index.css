@@ -1,0 +1,11 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-title{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}

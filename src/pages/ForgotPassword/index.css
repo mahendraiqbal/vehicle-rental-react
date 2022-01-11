@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.jumbotron{
+    background-image: url("../../assets/forgot-password.jpeg");
+    background-size: cover;
+    filter: brightness(60%);
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+    filter: contrast(100%);
+}

@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+}
+
+.icon {
+  width: 60%;
+  height: 100%;
+}
+
+.dropdown{
+    display: flex;
+}
+
+.iconProfile {
+  width: 25px;
+  height: 100%;
+  border-radius: 20px;
+}

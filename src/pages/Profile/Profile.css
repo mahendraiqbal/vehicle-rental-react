@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.info-profile {
+    text-align: center;
+    /* padding: 5% 5%; */
+}
+
+p{
+    text-align: center;
+    margin: 0;
+}
+
+.name-profile{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-family: 'Nunito', sans-serif;
+}
+
+.text-profile{
+    text-align: center;
+}
+
+.image-profile {
+    border-radius: 100%;
+    height: 320px;
+    width: 30%;
+}
+.edit-profile{
+    text-align: start;
+}
+
+.identity{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: lighter;
+    color: #b8b8b8;
+    font-family: 'Nunito', sans-serif;
+    filter: contrast(50%);
+}
+
+.container-2 {
+    display: grid;
+    grid-template-columns: auto;
+    /* padding: 0 5%; */
+    text-align: center;
+    grid-template-rows: auto;
+}
+
+.radio-button{
+    text-align: center;
+}
+
+
+.container-3 {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 5% 5%;
+    text-align: left;
+    grid-template-rows: auto;
+}
+
+.header-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+}
+
+h5 {
+    color: #b8b8b8;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+}
+
+.title-edit{
+    color: black;
+}
+
+.edit-email,
+.edit-address,
+.edit-number {
+    padding: 1% 1%;
+}
+
+.email-profile,
+.address,
+.number {
+    padding: 1% 1%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1% solid black;
+    width: 100%;
+}
+
+.identity {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.display-name,
+.display-date {
+    padding: 2%;
+    text-align: center;
+}
+
+.name-profile {
+    padding: 1% 1%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1% solid black;
+    width: 100%;
+}
+
+.date-profile {
+    padding: 1% 1%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1% solid black;
+    width: 100%;
+}
+
+.button-edit-profile {
+    padding: 5% 5%;
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+}
+
+.button-save {
+    width: 90%;
+    height: 100%;
+    background-color: #FFCD61;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+}
+
+.edit-password {
+    width: 90%;
+    height: 100%;
+    background-color: black;
+    color: #FFCD61;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+}
+
+.button-cancel {
+    width: 100%;
+    height: 70px;
+    background-color: #CBCBD445;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+}

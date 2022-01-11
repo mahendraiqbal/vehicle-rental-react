@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Nunito:wght@300&family=Playfair+Display:wght@600&display=swap');
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* .image { */
+    /* background-image: url("../../assets/image-van.jpeg"); */
+    /* max-height: 100%;
+    position: fixed; */
+    /* max-height: 100%; */
+    /* height: auto; */
+    /* position: fixed; top: 0; left: 0; */
+    /* background-size: cover; */
+/* } */
+
+.form{
+    text-align: center;
+}
+
+.image-van{
+    width: 100%;
+}
+
+.title {
+    padding: 10% 5%;
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.input-name {
+    text-align: center;
+}
+
+.name {
+    width: 450px;
+    height: 50px;
+    background-color: #DADADA;
+    border-radius: 8px;
+    border: 0px;
+    padding-left: 5%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.input-email {
+    /* padding: 2% 5%; */
+    text-align: center;
+}
+
+.email {
+    width: 450px;
+    height: 50px;
+    background-color: #DADADA;
+    border-radius: 8px;
+    border: 0px;
+    padding-left: 5%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.input-password {
+    /* padding: 2% 5%; */
+    text-align: center;
+}
+
+.password {
+    width: 450px;
+    height: 50px;
+    background-color: #DADADA;
+    border-radius: 8px;
+    border: 0px;
+    padding-left: 5%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.button-sign-up {
+    /* padding: 5% 5%; */
+    text-align: center;
+}
+
+.sign-up {
+    width: 450px;
+    height: 50px;
+    background-color: #FFCD61;
+    border-radius: 8px;
+    border: 0px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+span {
+    padding: 5% 32%;
+    /* padding-right: 5%; */
+}
+
+.button-sign-up-google {
+    /* padding: 5% 5%; */
+    text-align: center;
+}
+
+.sign-up-google {
+    width: 450px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 0px;
+    text-align: center;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+}
+
+.icon-google {
+    width: 6%;
+    height: 50%;
+}
+
+.button-login {
+    /* padding: 2% 5%; */
+    text-align: center;
+}
+
+.login {
+    color: #FFCD61;
+    width: 450px;
+    height: 50px;
+    background-color: black;
+    border-radius: 8px;
+    border: 0px;
+    text-align: center;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.icon {
+    padding: 2% 2%;
+}
+
+.icon-signUp{
+    width: 60%;
+    padding-left: 5%;
+}
+
+.icon-rental-signup {
+    width: 10%;
+    height: 10%;
+}
+
+.text-footer-signup {
+    padding: 2% 12%;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #848484;
+}
+
+.icon-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+i {
+    font-size: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .name {
+        width: 400px;
+    }
+
+    .email {
+        width: 400px;
+    }
+
+    .password {
+        width: 400px;
+    }
+
+    .login {
+        width: 400px;
+    }
+
+    .sign-up-google {
+        width: 400px;
+    }
+
+    .sign-up {
+        width: 400px;
+    }
+
+    .icon-google {
+        width: 7%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .image{
+        width: 0;
+        height: 0;
+    }
+    .form{
+        /* align-items: center; */
+        text-align: center;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .name {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .email {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .password {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    .forgot-password {
+        font-size: 12px;
+    }
+
+    .login {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .sign-up-google {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .icon-google {
+        height: 35%;
+        width: 7%;
+    }
+
+    .sign-up {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .row{
+        background-image: url(../../assets/image-van.jpeg);
+        background-size: cover;
+    }
+
+    .form {
+        /* background-image: url(../assets/img/image-van.jpeg); */
+        background-color: #FFFFFF;
+        padding: 0;
+        /* max-height: 90%; */
+        /* height: 100%; */
+        /* background-size: cover; */
+        /* opacity: 0.8; */
+        border-radius: 60px;
+        /* width: 500px; */
+        /* align-items: center; */
+        /* position: absolute; */
+        /* margin-left: 5%; */
+        /* margin-right: 5%; */
+    }
+
+    .title {
+        /* padding: 5% 40%; */
+        font-size: 26px;
+    }
+
+    /* .input-name {
+        padding: 0 20%;
+    } */
+
+    .name {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    /* .input-email {
+        padding: 5% 20%;
+    } */
+
+    .email {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    /* .input-password {
+        padding: 0 20%;
+        padding-bottom: 3%;
+    } */
+
+    .password {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    span {
+        /* padding: 5% 40%; */
+        font-size: 12px;
+    }
+
+    /* .button-sign-up-google {
+        padding: 5% 20%;
+    } */
+
+    .login {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .forgot-password {
+        /* padding: 2% 20%; */
+        font-size: 12px;
+    }
+
+    /* .button-login {
+        padding: 2% 20%;
+    } */
+
+    .login-google {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    .icon-google {
+        width: 6%;
+        height: 35%;
+    }
+
+    /* .button-sign-up {
+        padding: 2% 20%;
+    } */
+
+    .sign-up {
+        width: 300px;
+        font-size: 12px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    footer{
+        text-align: start;
+        padding: 0 10%;
+    }
+}
