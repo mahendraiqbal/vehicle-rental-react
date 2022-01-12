@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+// import imageVan from "../../../assets/image-van.jpeg"
 
 class Card extends React.Component {
     state = {
@@ -7,30 +8,27 @@ class Card extends React.Component {
         isSuccess: false,
     };
     componentDidMount() {
-        const { match } = this.props;
+        // const { match } = this.props;
         const URL = "http://localhost:8080/vehicles";
         axios
         .get(URL)
         .then((response) => {
             this.setState({ data: response.data, isSuccess: true});
+            console.log(response.data.result.data)
         })
         .catch((error) => {
             console.error("ERROR", error);
         })
     }
   render() {
-      const { match } = this.props;
-      const { data: vehicle, isSuccess } = this.state
+      // const { match } = this.props;
+      const { data: vehicle } = this.state
     return (
       <main>
-          {isSuccess ? (
           <section>
             <img src={vehicle.image}  alt="image_vehicle" />
             <h3>{vehicle.name}</h3>
           </section>
-          ): (
-              <p>Fetching</p>
-          )}
           Detail
       </main>
       // <div class="vehicles-list">

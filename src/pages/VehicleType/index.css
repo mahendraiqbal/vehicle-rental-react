@@ -9,3 +9,16 @@
     display: grid;
     grid-template-columns: 80% 20%;
 }
+
+.card-vehicletype{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.viewAll{
+  border: 0;
+  background-color: #FFFFFF;
+  color: #FB8F1D;
+  font-size: 15px;
+  /* padding-top: 50%; */
+}

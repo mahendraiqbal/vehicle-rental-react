@@ -16,3 +16,32 @@
     text-align: center;
     filter: contrast(100%);
 }
+
+.button-back-forgot{
+    text-align: start;
+    padding: 5% 5%;
+    color: #FFFFFF;
+}
+
+.inputEmailForgot{
+    border-radius: 5px;
+    width: 30%;
+    height: 50px;
+    text-align: center;
+}
+
+.button-send {
+    margin: 2%;
+    width: 30%;
+    height: 50px;
+    background-color: #FFCD61;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+}
+
+.text-forgot{
+    text-align: center;
+}

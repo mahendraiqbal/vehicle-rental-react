@@ -24,36 +24,56 @@ function VehicleType() {
           Popular in town
         </div>
         <div className="button-vehicle-type">
-            <button>View All</button>
+            <button className="viewAll">View All ></button>
         </div>
-        <Card />
+        <section className="card-vehicletype">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </section>
       </section>
       <section className="main-title">
         <div className="title-vehicle-type">
           Cars
         </div>
         <div className="button-vehicle-type">
-            <button>View All</button>
+            <button className="viewAll">View All ></button>
         </div>
-        <Card />
+        <section className="card-vehicletype">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </section>
       </section>
       <section className="main-title">
         <div className="title-vehicle-type">
           Motorbike
         </div>
         <div className="button-vehicle-type">
-            <button>View All</button>
+            <button className="viewAll">View All ></button>
         </div>
-        <Card />
+        <section className="card-vehicletype">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </section>
       </section>
       <section className="main-title">
         <div className="title-vehicle-type">
           Bike
         </div>
         <div className="button-vehicle-type">
-            <button>View All</button>
+            <button className="viewAll">View All ></button>
         </div>
-        <Card />
+        <section className="card-vehicletype">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </section>
       </section>
       <Footer />
     </main>

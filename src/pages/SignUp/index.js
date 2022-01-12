@@ -30,7 +30,7 @@ function index(props) {
         </Col>
         <Col md={6} className="form">
           <form className="submitSignUp" onSubmit={submitHandler}>
-            <div className="title">Sign Up</div>
+            <div className="titleSignUp">Sign Up</div>
           <div className="input-name">
             <input
               type="name"
@@ -66,11 +66,9 @@ function index(props) {
           <div className="button-sign-up-google">
             <button className="sign-up-google">Sign Up With Google</button>
           </div>
-          <div className="button-login">
-            <a href="./loginPage.html">
-              <button className="login">Login</button>
-            </a>
-          </div>
+          <div className="button-LoginSignUp">
+            <button className="signUpLogin">Login</button>
+          </div> <br/> <br/>
           <footer>
               <div className="icon-signUp"><img src={icon} className="icon-rental-signup" alt="icon_rental"></img></div>
             <p className="text-footer-signup">

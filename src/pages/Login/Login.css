@@ -29,7 +29,7 @@
     height: 100%;
 }
 
-.title {
+.title-login {
     text-align: start;
     padding: 10% 15%;
     font-family: 'Playfair Display', sans-serif;
@@ -88,6 +88,7 @@
 }
 
 .forgot-password {
+    margin-top: 10%;
     padding: 2% 15%;
     text-align: start;
 }
@@ -147,40 +148,9 @@ a {
     font-size: 16px;
 }
 
-.icon {
+.icon-rental-login {
     padding: 2% 15%;
     text-align: start;
-}
-
-.icon-rental {
-    /* text-align: start; */
-    width: 40%;
-    height: 100%;
-}
-
-.text-footer {
-    text-align: start;
-    padding: 2% 15%;
-    font-family: 'Mulish', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #848484;
-}
-.icon-rental-login{
-    text-align: start;
-    width: 25%;
-    height: 40%;
-}
-
-.icon-footer-login {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-i {
-    font-size: 20px;
-    text-align: center;
 }
 
 @media screen and (max-width: 960px) {

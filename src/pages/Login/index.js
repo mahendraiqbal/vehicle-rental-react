@@ -30,7 +30,7 @@ function index(props) {
         </Col>
         <Col md={6} className="form">
           <form className="submitLogin" onSubmit={submitHandler}>
-            <div className="title">Login</div>
+            <div className="title-login">Login</div>
             <div className="input-email">
               <input
                 type="email"

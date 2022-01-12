@@ -5,8 +5,9 @@ import iconProfile from "../../../assets/img-profile.png";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import "./Navbar.css";
 
-function Header() {
-  return (
+class Header extends React.Component {
+  render() {
+    return (
     <Navbar>
       <Container className="header">
         <Navbar.Brand href="#home">
@@ -35,6 +36,7 @@ function Header() {
       </Container>
     </Navbar>
   );
+  }
 }
 
 export default Header;
