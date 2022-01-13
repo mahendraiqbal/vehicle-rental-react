@@ -70,7 +70,28 @@
     font-size: 16px;
 }
 
-.button-login {
+.button-LoginSignIn{
+    /* padding: 5% 5%; */
+    text-align: center;
+    padding-top: 2%;
+}
+
+.loginSignIn {
+    width: 450px;
+    height: 50px;
+    color: black;
+    background-color: #FFCD61;
+    border-radius: 8px;
+    border: 0px;
+    text-align: center;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* .button-login {
     padding: 2% 5%;
 }
 
@@ -85,7 +106,7 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 900;
     font-size: 16px;
-}
+} */
 
 .forgot-password {
     margin-top: 10%;

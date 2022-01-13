@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
 *,
 *::after,
 *::before {
@@ -7,10 +9,11 @@
 
 .navbar {
   display: flex;
+  font-family: 'Nunito', sans-serif;
 }
 
-.icon {
-  width: 60%;
+.icon-header {
+  width: 30%;
   height: 100%;
 }
 
@@ -19,7 +22,7 @@
 }
 
 .iconProfile {
-  width: 25px;
-  height: 100%;
+  width: 40px;
+  height: 40px;
   border-radius: 20px;
 }

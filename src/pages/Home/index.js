@@ -4,10 +4,10 @@ import stars from "../../assets/star.png";
 // import circle from "../../assets/circle.png";
 // import plus from "../../assets/plus.png";
 import person from "../../assets/image-person.png";
-import Card from "../../components/layouts/Card/Card";
+// import Card from "../../components/layouts/Card/Card";
 import Footer from "../../components/layouts/Footer/Footer";
 import { Redirect } from "react-router-dom";
-import HeaderBefore from "../../components/layouts/NavbarBefore";
+import Header from "../../components/layouts/Navbar/Navbar";
 
 class Home extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class Home extends React.Component {
     return (
       <main>
         {/*  Kondisi is Logged in memakai header yang mana*/}
-        <HeaderBefore />
+        <Header />
         <section className="container-1">
           <div className="form">
             <div>
@@ -29,7 +29,7 @@ class Home extends React.Component {
               <h2>
                 Vehicle Finder
                 <br />
-                ___
+                <hr className="vehicle-jumbotron"/>
               </h2>
             </div>
             <div className="option-form">
@@ -64,10 +64,10 @@ class Home extends React.Component {
         <section className="popular">
           <h3>Popular in town</h3>
           <div className="card-popular">
+            {/* <Card />
             <Card />
             <Card />
-            <Card />
-            <Card />
+            <Card /> */}
           </div>
         </section>
         <section>

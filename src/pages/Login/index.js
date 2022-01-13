@@ -3,6 +3,7 @@ import "./Login.css";
 import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
+// import { loginAction } from "../../redux/actions/auth"
 import axios from "axios";
 
 function index(props) {
@@ -12,11 +13,15 @@ function index(props) {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    const URL = "http://localhost:8080/auth";
+    const URL = process.env.REACT_APP_HOST + "/auth";
+    console.log(process.env.REACT_APP_HOST)
     axios
       .post(URL, body)
       .then((response) => {
-        const token = response.data.result.token
+        const token = response.data.result.token;
+        const Userid = response;
+        console.log(token);
+        console.log(Userid);
         localStorage.setItem("vehicle-rental-token", JSON.stringify(token));
         props.history.push("/home");
       })
@@ -49,8 +54,8 @@ function index(props) {
                 name="password"
               />
             </div>
-            <div className="button-login">
-              <button className="login">Login</button>
+            <div className="button-LoginSignIn">
+              <button className="loginSignIn">Login</button>
             </div>
           </form>
           <div className="forgot-password">Forgot password?</div>
@@ -62,20 +67,14 @@ function index(props) {
             <button className="sign-up">Sign Up</button>
           </div>
           <footer>
-            <div className="icon-rental-login">
-              <img
-                src={icon}
-                className="icon-rental-login"
-                alt="icon_rental"
-              ></img>
-            </div>
-            <div className="text-footer">
-              Plan and book your perfect trip with <br /> expert advice, travel
-              tips for vehicle <br /> information from us <br /> <br /> ©2020
-              Vehicle Rental Center. All rights reserved
-            </div>
+              <div className="icon-signUp"><img src={icon} className="icon-rental-signup" alt="icon_rental"></img></div>
+            <p className="text-footer-signup">
+              Plan and book your perfect trip with <br/> expert advice, travel tips
+              for vehicle <br/> information from us <br/> <br/> ©2020 Vehicle Rental Center. All
+              rights reserved
+            </p>
             <hr />
-            <div className="icon-footer-login">
+            <div className="icon-footer">
               <i className="fab fa-twitter"></i>
               <i className="fab fa-facebook-f"></i>
               <i className="fab fa-instagram"></i>
