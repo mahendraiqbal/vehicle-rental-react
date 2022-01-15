@@ -32,6 +32,18 @@ p {
   color: black;
 }
 
+.destination ul li{
+  list-style-type: none;
+}
+
+.vehicle ul li{
+  list-style-type: none;
+}
+
+.interest ul li{
+  list-style-type: none;
+}
+
 .vehicle ul {
   text-align: start;
   padding: 0;

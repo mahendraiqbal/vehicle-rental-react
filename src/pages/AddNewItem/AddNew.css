@@ -1,0 +1,24 @@
+.back-add-item{
+    margin-top: 20px;
+}
+
+.title-item{
+    color: black;
+    display: grid;
+    grid-template-columns: 5% 95%;
+    padding: 2% 2%;
+}
+
+.title-additem{
+    color: black;
+}
+
+.detail-add-item{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.button-addItem{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}

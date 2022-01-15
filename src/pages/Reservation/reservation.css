@@ -1,0 +1,53 @@
+.back-reservation{
+    margin-top: 20px;
+}
+
+.title-reservation{
+    display: grid;
+    grid-template-columns: 5% 95%;
+    color: black;
+    padding: 2% 2%;
+}
+
+.detail-reservation {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.image-reservation{
+    width: 100%;
+    height: 100%;
+    padding: 2% 2%;
+    border-radius: 20px;
+}
+
+.brand-reservation{
+    color: black;
+}
+
+.button-pay-reservation{
+    display: grid;
+    grid-template-columns: auto;
+    padding: 2% 2%;
+}
+
+.selectDate{
+    width: 220px;
+    height: 50px;
+    border-radius: 5px;
+    opacity: 0.4;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #393939;
+}
+
+.button-reservation-pay{
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1em;
+  background-color: #FFCD61;
+  color: black;
+  font-weight: bold;
+}

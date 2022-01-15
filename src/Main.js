@@ -14,6 +14,8 @@ import ForgotPassword2 from "./pages/ForgotPassword2";
 import VehicleType from "./pages/VehicleType/index";
 import MoreDetail from "./pages/ViewMoreDetail2";
 import Reservation from "./pages/Reservation";
+import Payment from "./pages/Payment";
+import NewItem from "./pages/AddNewItem"
 
 function Main() {
   return (
@@ -31,6 +33,8 @@ function Main() {
           <Route path="/vehicleType" component={VehicleType} />
           <Route path="/moreDetail" component={MoreDetail} />
           <Route path="/reservation" component={Reservation} />
+          <Route path="/payment" component={Payment} />
+          <Route path="/addItem" component={NewItem} />
         </Switch>
       </Router>
     // </ReduxProvider>

@@ -1,0 +1,56 @@
+.back-payment{
+    margin-top: 20px;
+}
+
+.title-payment{
+    color: black;
+    display: grid;
+    grid-template-columns: 5% 95%;
+    padding: 2% 2%;
+}
+
+.jumbotron-payment{
+    background-image: url("../../assets/image-bike-pixie.jpeg");
+    background-size: cover;
+    width: 100%;
+    /* height: 500px; */
+}
+
+.code-rental-payment{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.order-payment{
+    text-align: center;
+}
+
+.order-payment-detail{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.button-payment-methods{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+}
+
+.transfer{
+    width: 50%;
+}
+
+.cash{
+    width: 50%;
+}
+
+.finish-payment{
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 1em;
+  background-color: #FFCD61;
+  color: black;
+  font-weight: bold;
+  width: 100%;
+}
