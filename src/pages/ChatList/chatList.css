@@ -1,0 +1,16 @@
+.search-barChat{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.chat-chatList{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.photoUser{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 2% 2%;
+}

@@ -1,0 +1,78 @@
+.userImageChat {
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.title-ChatDetail{
+    display: grid;
+    grid-template-columns: 10% 10% 80%;
+}
+
+.back-chatDetail{
+    margin: 20px;
+}
+
+.title-chatDetailUser{
+    color: black;
+}
+.chat-image{
+    border: 1px solid gray;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.chatImage{
+    padding: 2% 2%;
+    /* margin-left: 5%; */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.firstChat{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+.chatUserFirst{
+    margin-top: 5%;
+}
+
+.chatFirst{
+    color: #FB8F1D;
+    /* border-style: solid; */
+    /* border-color: red; */
+    background-color: black;
+    border-radius: 5px;
+    height: 50px;
+    width: auto;
+    text-align: center;
+    padding: 2% 2%;
+}
+
+.timeChat{
+    text-align: end;
+}
+
+.customerChat{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.chatCustomer{
+    color: black;
+    /* border-style: solid; */
+    /* border-color: red; */
+    background-color: #FB8F1D;
+    border-radius: 5px;
+    height: 50px;
+    width: auto;
+    text-align: center;
+    padding: 2% 2%;
+}
+
+.timeChatCustomer{
+    text-align: end;
+}

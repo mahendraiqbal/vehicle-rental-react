@@ -10,7 +10,7 @@ class getProfile extends React.Component {
     axios
       .get(URL)
       .then((response) => {
-        console.log("RESPONSE", response.data.result);
+        console.log("RESPONSE", response.data.result[1]);
         this.setState({
           users: response.data.result,
         });

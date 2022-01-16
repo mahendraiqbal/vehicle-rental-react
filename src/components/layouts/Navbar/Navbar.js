@@ -65,7 +65,7 @@ class Header extends React.Component {
             }
             >
               <NavDropdown.Item  as={Link} to="/profile" >Edit Profile</NavDropdown.Item> 
-              <NavDropdown.Item as={Link} to="#" >Help</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/help" >Help</NavDropdown.Item>
               <NavDropdown.Item  onClick={this.onLogout} >Logout</NavDropdown.Item>
             </NavDropdown>
             </>

@@ -1,24 +1,33 @@
 import React from "react";
 // import { Button } from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios";
+import { usersProfile } from '../../utils/https/users';
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import ProfileImage from "../../assets/img-profile.png";
 import "./Profile.css";
 
 class Profile extends React.Component {
+  state = {
+    userData: "",
+  }
   componentDidMount() {
-    const URL = "http://localhost:8080/profile"
-    axios
-      .get(URL)
-      .then((response) => {
-        console.log("RESPONSE", response);
+    usersProfile()
+    .then((res) => {
+      // console.log(res.data.result[0])
+      const moment = require("moment")
+      let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD")
+      // console.log(DoB)
+      const result = {...res.data.result[0], DoB};
+      // console.log(result)
+      this.setState({
+        userData: result,
       })
-      .catch((error) => {
-        console.log("ERROR", error);
-      });
+    })
+    .catch((err) => console.error(err));
   }
   render() {
+    const { name, email, DoB, address, contact } = this.state.userData;
     return (
       <main className="container">
         <Navbar />
@@ -28,9 +37,9 @@ class Profile extends React.Component {
             className="image-profile"
             alt="ProfileImage"
           ></img>
-          <p className="name-profile">Samantha Doe</p>
-          <p className="text-profile">samanthadoe@mail.com</p>
-          <p className="text-profile">+62833467823</p>
+          <p className="name-profile">{name}</p>
+          <p className="text-profile">{email}</p>
+          <p className="text-profile">{contact}</p>
           <p className="text-profile">Has been active since 2013</p>
         </section>
         <section className="radio-button">
@@ -47,7 +56,8 @@ class Profile extends React.Component {
               type="text"
               name="email"
               id="email"
-              className="email-profile"              
+              defaultValue={email}
+              className="email-profile"             
             ></input>
           </div>
           <div className="edit-address">
@@ -56,7 +66,8 @@ class Profile extends React.Component {
               type="text"
               name="address"
               id="address"
-              className="address"              
+              className="address"
+              defaultValue={address}       
             ></input>
           </div>
           <div className="edit-number">
@@ -66,6 +77,7 @@ class Profile extends React.Component {
               name="number"
               id="number"
               className="number"
+              defaultValue={contact}
             ></input>
           </div>
           <div className="header-text">
@@ -77,7 +89,8 @@ class Profile extends React.Component {
                   type="text"
                   name="name"
                   id="name"
-                  className="name-profile"
+                  className="name-profile-input"
+                  defaultValue={name}
                 ></input>
               </div>
               <div className="DoB">
@@ -88,6 +101,7 @@ class Profile extends React.Component {
                     name="DoB"
                     id="DoB"
                     className="date-profile"
+                    defaultValue={DoB}
                   ></input>
                 </div>
               </div>
