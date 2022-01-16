@@ -18,7 +18,7 @@ function index(props) {
     axios
     .post(URL, body)
     .then((response) => {
-      props.history.push("/home")
+      props.history.push("/login")
     })
     .catch((err) => console.error(err));
   };

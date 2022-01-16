@@ -1,35 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import "./counter.css"
 
-class Counter extends Component {
-  state = {
-    counter: 0,
-  };
+class index extends Component {
   render() {
     return (
-      <div className="button-counter">
-        <button
-          onClick={() => {
-            const total = this.state.counter;
-            this.setState({
-              counter: total - 1,
-            });
-          }}
-        >
-          -
-        </button>
-        <button
-          onClick={() => {
-            const total = this.state.counter;
-            this.setState({
-              counter: total + 1,
-            });
-          }}
-        >
-          +
-        </button>
+      <div className="button-wrapper-counter">
+          <button onClick={this.props.onClickPrev}>-</button>
+          <p className="counter-detail">{this.props.counterTotal}</p>
+          <button onClick={this.props.onClickNext}>+</button>
       </div>
-    );
+    )
   }
 }
 
-export default Counter;
+export default index;

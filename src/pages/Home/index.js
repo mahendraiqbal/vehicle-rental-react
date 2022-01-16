@@ -1,5 +1,7 @@
 import React from "react";
 import "./Home.css";
+import { connect } from "react-redux"
+
 import stars from "../../assets/star.png";
 // import circle from "../../assets/circle.png";
 // import plus from "../../assets/plus.png";
@@ -13,9 +15,9 @@ class Home extends React.Component {
   render() {
     const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
     if (!token) return <Redirect to="/login" />;
+    // console.log(this.props.auth)
     return (
       <main>
-        {/*  Kondisi is Logged in memakai header yang mana*/}
         <Header />
         <section className="container-1">
           <div className="form">
@@ -110,4 +112,14 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+const HomeRedux = connect(mapStateToProps)(Home);
+
+// export default Home;
+
+export default HomeRedux;

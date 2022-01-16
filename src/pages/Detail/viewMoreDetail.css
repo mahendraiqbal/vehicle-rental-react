@@ -167,7 +167,7 @@ p {
 .button-price {
   padding: 10% 5%;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  /* grid-template-columns: 20% 60% 20%; */
   text-align: center;
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { Provider as ReduxProvider } from "react-redux";
-// import store from "./redux/store";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./redux/store";
 
 import Profile from "./pages/Profile/Profile";
 import SignUp from "./pages/SignUp/index";
@@ -19,7 +19,7 @@ import NewItem from "./pages/AddNewItem"
 
 function Main() {
   return (
-    // <ReduxProvider store={store}>
+    <ReduxProvider store={store}>
       <Router>
         <Switch>
           <Route path="/login" component={Login} />
@@ -37,7 +37,7 @@ function Main() {
           <Route path="/addItem" component={NewItem} />
         </Switch>
       </Router>
-    // </ReduxProvider>
+     </ReduxProvider>
   );
 }
 
