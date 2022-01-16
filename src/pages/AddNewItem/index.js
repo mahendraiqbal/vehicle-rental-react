@@ -16,7 +16,6 @@ class NewItem extends Component {
         </section>
         <section className="detail-add-item">
           <section className="image-add-item">
-            <img></img>
           </section>
           <section className="input-add-item">
             <input type="text" value="Name (max up to 50 words)" /> <br />

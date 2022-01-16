@@ -1,4 +1,6 @@
 import React from "react";
+// import { popular } from "../../utils/https/vehicle"
+
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import Card from "../../components/layouts/Card/Card";
