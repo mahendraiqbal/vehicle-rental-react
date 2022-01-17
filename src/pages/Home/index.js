@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import { connect } from "react-redux"
+import { popular } from "../../utils/https/vehicle"
 
 import stars from "../../assets/star.png";
 // import circle from "../../assets/circle.png";
@@ -8,14 +9,27 @@ import stars from "../../assets/star.png";
 import person from "../../assets/image-person.png";
 // import Card from "../../components/layouts/Card/Card";
 import Footer from "../../components/layouts/Footer/Footer";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import Header from "../../components/layouts/Navbar/Navbar";
 
 class Home extends React.Component {
+  state = {
+    dataVehicle: [],
+  }
+  componentDidMount() {
+    popular()
+    .then((res) => {
+      console.log("RESPONSE", res.data.result[0])
+      this.setState({
+        dataVehicle: res.data.result,
+      })
+    })
+    .catch()
+  }
   render() {
-    const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
-    if (!token) return <Redirect to="/login" />;
-    // console.log(this.props.auth)
+    // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
+    // if (!token) return <Redirect to="/login" />;
+    // // console.log(this.props.auth)
     return (
       <main>
         <Header />
