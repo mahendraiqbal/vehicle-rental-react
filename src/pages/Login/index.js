@@ -7,6 +7,7 @@ import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom"
 // import { loginAction } from "../../redux/actions/auth"
 // import axios from "axios";
 
@@ -72,13 +73,17 @@ class index extends React.Component {
                 <button className="loginSignIn">Login</button>
               </div>
             </form>
-            <div className="forgot-password">Forgot password?</div>
+            <Link to="/forgotPassword" >
+              <div className="forgot-password">Forgot password?</div>
+            </Link>
             <span className="text-span">try another way</span>
             <div className="button-login-google">
               <button className="login-google">Login With Google</button>
             </div>
             <div className="button-sign-up">
-              <button className="sign-up">Sign Up</button>
+              <Link to="/signUp">
+                <button className="sign-up">Sign Up</button>
+              </Link>
             </div>
             <footer>
               <div className="icon-signUp">

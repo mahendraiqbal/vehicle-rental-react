@@ -2,6 +2,7 @@ import React from "react";
 import "./chatList.css";
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
+// import { useHistory } from "react-router-dom";
 
 import userPhoto from '../../assets/img-profile.png'
 

@@ -5,7 +5,6 @@ import "./viewMoreDetail.css";
 import Footer from "../../components/layouts/Footer/Footer";
 import { Link } from "react-router-dom";
 
-
 import buttonback from "../../assets/back.png";
 import bike from "../../assets/image-bike-pixie.jpeg";
 import back from "../../assets/back2.png";
@@ -20,7 +19,7 @@ class index extends React.Component {
     this.setState({
       counter: total - 1,
     });
-  }
+  };
   onClickNextCounter = () => {
     const total = this.state.counter;
     this.setState({
@@ -33,16 +32,14 @@ class index extends React.Component {
       <main className="container">
         <Header />
         <section className="info-detail">
-          <h1 className="title-detail">
-            <Link href="#">
-              <img
-                src={buttonback}
-                alt="back button"
-                className="back-button"
-              ></img>
-            </Link>{" "}
-            Detail
-          </h1>
+          <section className="title-item">
+            <img
+              src={buttonback}
+              alt="iconBack"
+              className="back-add-item"
+            ></img>
+            <h1 className="title-additem">Detail</h1>
+          </section>
           <div className="detail">
             <div className="image">
               <div className="primary-image">
@@ -50,9 +47,9 @@ class index extends React.Component {
               </div>
               <div className="sub-image">
                 <div className="button-back">
-                  <Link href="#">
+                  <button className="back-detail">
                     <img src={back} alt="back" className="back"></img>
-                  </Link>
+                  </button>
                 </div>
                 <div className="sub-image-1">
                   <img
@@ -69,9 +66,9 @@ class index extends React.Component {
                   ></img>
                 </div>
                 <div className="button-next">
-                  <Link href="#">
+                  <button className="next-detail">
                     <img src={next} alt="next" className="next"></img>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -90,7 +87,7 @@ class index extends React.Component {
                 <div className="price-vehicle">Rp 78.000/day</div>
               </div>
               <div className="button-price">
-                <Counter 
+                <Counter
                   onClickPrev={this.onClickPrevious}
                   onClickNext={this.onClickNextCounter}
                   counterTotal={this.state.counter}
@@ -101,16 +98,16 @@ class index extends React.Component {
         </section>
         <section className="button">
           <div className="button-chat">
-            <Link href="">
-              <button type="button" className="button-chat">
-                Chat Admin
-              </button>
-            </Link>
+            <button type="button" className="button-chat">
+              Chat Admin
+            </button>
           </div>
           <div className="button-reservation">
-            <button type="button" className="button-reservation">
-              Reservation
-            </button>
+            <Link to="/reservation">
+              <button type="button" className="button-reservation">
+                Reservation
+              </button>
+            </Link>
           </div>
           <div className="button-like">
             <button type="button" className="button-like">

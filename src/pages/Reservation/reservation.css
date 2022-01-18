@@ -50,4 +50,20 @@
   background-color: #FFCD61;
   color: black;
   font-weight: bold;
+  width: 100%;
+}
+
+.prepayment-reservation{
+    color: red;
+}
+
+.selectDate{
+    width: 90%;
+}
+
+.day-reservation{
+    margin-top: 5%;
+    width: 90%;
+    height: 50px;
+    color: grey;
 }

@@ -1,0 +1,50 @@
+.main-section-history{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    /* border: 1px solid black; */
+    height: 800px;
+}
+
+.new-arrivalHistory{
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.button-searchHistory{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+
+.new-arrivalHistory{
+    display: grid;
+    grid-template-rows: 20% 40% 40%;
+}
+
+.title-ImageHistory{
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.figcaption-brand{
+    text-align: start;
+    padding: 0;
+}
+
+.figcaption-city{
+    padding: 0;
+}
+
+.imageHistoryFirstCard{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imageHistoryFirst{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10%;
+}

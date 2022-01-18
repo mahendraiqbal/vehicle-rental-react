@@ -1,0 +1,105 @@
+.back-add-item{
+    margin-top: 20px;
+}
+
+.title-item{
+    color: black;
+    display: grid;
+    grid-template-columns: 5% 95%;
+    padding: 2% 2%;
+}
+
+.title-additem{
+    color: black;
+}
+
+.detail-add-item{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.button-addItem{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    text-align: center;
+}
+
+.input-add-item{
+    text-align: center;
+}
+
+.nameVehicle{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.locationVehicle{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.descriptionVehicle{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.price-addItem{
+    padding-left: 5%;
+}
+
+.priceVehicle{
+    background-color: #EEEEEE;
+    border: 0;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.status-item{
+    padding-left: 5%;
+}
+
+.status-addItem{
+    background-color: #EEEEEE;
+    border: 0;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.dropdown-addItem{
+    /* text-align: end; */
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    background-color: black;
+    color: #FFCD61;
+}
+
+.button-save-addItem{
+    /* text-align: end; */
+    width: 90%;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 2%;
+}
+
+.saveAddItem{
+    text-align: end;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #FFCD61;
+}

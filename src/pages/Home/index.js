@@ -1,32 +1,37 @@
 import React from "react";
 import "./Home.css";
-import { connect } from "react-redux"
-import { popular } from "../../utils/https/vehicle"
+import { connect } from "react-redux";
+import { popular } from "../../utils/https/vehicle";
+import { Link } from "react-router-dom";
 
 import stars from "../../assets/star.png";
 // import circle from "../../assets/circle.png";
 // import plus from "../../assets/plus.png";
 import person from "../../assets/image-person.png";
+import imageDefault from "../../assets/image-van.jpeg";
 // import Card from "../../components/layouts/Card/Card";
 import Footer from "../../components/layouts/Footer/Footer";
 // import { Redirect } from "react-router-dom";
 import Header from "../../components/layouts/Navbar/Navbar";
+// import index from "../Detail";
 
 class Home extends React.Component {
   state = {
     dataVehicle: [],
-  }
+  };
   componentDidMount() {
     popular()
-    .then((res) => {
-      console.log("RESPONSE", res.data.result[0])
-      this.setState({
-        dataVehicle: res.data.result,
+      .then((res) => {
+        console.log("RESPONSE", res.data.result);
+        this.setState({
+          dataVehicle: res.data.result[3],
+        });
       })
-    })
-    .catch()
+      .catch((err) => console.error(err));
   }
   render() {
+    const { brand, city } = this.state.dataVehicle;
+    console.log(brand)
     // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
     // if (!token) return <Redirect to="/login" />;
     // // console.log(this.props.auth)
@@ -45,7 +50,7 @@ class Home extends React.Component {
               <h2>
                 Vehicle Finder
                 <br />
-                <hr className="vehicle-jumbotron"/>
+                <hr className="vehicle-jumbotron" />
               </h2>
             </div>
             <div className="option-form">
@@ -80,14 +85,23 @@ class Home extends React.Component {
         <section className="popular">
           <h3>Popular in town</h3>
           <div className="card-popular">
-            {/* <Card />
-            <Card />
-            <Card />
-            <Card /> */}
+            <div className="image-card">
+              <Link to="/detail">
+              <img
+                src={imageDefault}
+                alt="imageCard"
+                className="image-popularCard"
+              ></img>
+              <figcaption className="caption">
+                <span className="figcaption-brand">{brand}</span>
+                <span className="figcaption-city">{city}</span>
+              </figcaption>
+              </Link>
+            </div>
           </div>
         </section>
         <section>
-          <div className="heading">
+          <div className="testimonials">
             <div>
               <h3>Testimonials</h3>
             </div>
@@ -121,11 +135,18 @@ class Home extends React.Component {
           </div>
         </section>
         <Footer />
+        <hr />
+        <div className="icon-footer">
+          <i className="fab fa-twitter"></i>
+          <i className="fab fa-facebook-f"></i>
+          <i className="fab fa-instagram"></i>
+          <i className="fab fa-linkedin-in"></i>
+          <i className="fab fa-youtube"></i>
+        </div>
       </main>
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

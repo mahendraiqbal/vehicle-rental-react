@@ -26,3 +26,18 @@
   height: 40px;
   border-radius: 20px;
 }
+
+.btn-login{
+  color: black;
+  border: 1px solid #FFCD61;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.btn-signUp{
+  color: black;
+  background-color: #FFCD61;
+  border: 0;
+  border-radius: 5px;
+  width: 100px;
+}

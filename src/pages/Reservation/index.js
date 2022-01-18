@@ -4,6 +4,7 @@ import Footer from "../../components/layouts/Footer/Footer";
 import iconBack from "../../assets/back.png";
 import imageBike from "../../assets/image-bike-pixie.jpeg";
 import Counter from "../../components/layouts/Counter";
+import { Link } from "react-router-dom";
 import "./reservation.css";
 
 function index() {
@@ -38,7 +39,9 @@ function index() {
         </section>
       </section>
       <section className="button-pay-reservation">
-        <button className="button-reservation-pay">Pay now : Rp. 178.000</button>
+        <Link to="/payment">
+          <button className="button-reservation-pay">Pay now : Rp. 178.000</button>
+        </Link>
       </section>
       <Footer />
       <hr />

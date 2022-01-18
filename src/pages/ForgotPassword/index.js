@@ -2,15 +2,18 @@ import React from "react";
 import "./index.css";
 import Footer from "../../components/layouts/Footer/Footer";
 import back from "../../assets/back-forgot.png";
+import { Link } from "react-router-dom";
 
 function ForgotPassword() {
   return (
     <main>
       <section className="jumbotron">
-        <div className="button-back-forgot">
-          <img src={back} alt="backForgotPassword" className="back-forgot" />{" "}
-          Back
-        </div>
+        <Link to="login">
+          <div className="button-back-forgot">
+            <img src={back} alt="backForgotPassword" className="back-forgot" />{" "}
+            Back
+          </div>
+        </Link>
         <h1 className="title">Don't Worry, we got your back!</h1>
         <input
           type="email"

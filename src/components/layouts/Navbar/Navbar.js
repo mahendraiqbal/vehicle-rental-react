@@ -52,7 +52,7 @@ class Header extends React.Component {
           <Nav.Link as={NavLink} to="/about">About</Nav.Link>
           {isLogin ? (
             <>
-            <Nav.Link href="#message">
+            <Nav.Link as={NavLink} to="/chatList">
             <img src={message} alt="iconmessage" className="icon-message"></img>
             </Nav.Link>
             <NavDropdown 

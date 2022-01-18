@@ -1,16 +1,23 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
+import { usersProfile } from "../../utils/https/users";
+
+function Card(props) {
+  return (
+    <section className="card m-2">
+      <p>{props.name}</p>
+    </section>
+  )
+}
 
 class getProfile extends React.Component {
   state = {
     users: [],
   };
   componentDidMount() {
-    const URL = "http://localhost:8080/users";
-    axios
-      .get(URL)
+    usersProfile()
       .then((response) => {
-        console.log("RESPONSE", response.data.result[1]);
+        console.log("RESPONSE", response.data.result[52].image);
         this.setState({
           users: response.data.result,
         });
@@ -23,7 +30,7 @@ class getProfile extends React.Component {
     const { users } = this.state;
     const usersView = [];
     for (let idx = 0; idx < users.length; idx++) {
-      const element = <li key={idx}>{users[idx].name}</li>;
+      const element = <Card name={users[idx].name} key={idx} />;
       usersView.push(element);
     }
     return usersView;

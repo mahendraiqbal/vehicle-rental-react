@@ -55,18 +55,16 @@ class Payment extends Component {
                   type="text"
                   name="name"
                   id="name"
-                  className="code-payment"
-                  value="OIHWEFOIWHF"
+                  className="qty-orderPayment"
+                  value="Quantity: 2 bikes"
                 ></input>
               </section>
               <section className="date-order">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="code-payment"
-                  value="OIHWEFOIWHF"
-                ></input>
+                <textarea id="identity" name="identity" rows="4" cols="20" className="priceDetails">
+                  Price details:
+                  1 bike : Rp. 78.000
+                  1 bike : Rp. 78.000
+                </textarea>
               </section>
             </section>
             <section className="detail-order-payment-identity">
@@ -75,12 +73,12 @@ class Payment extends Component {
                   type="text"
                   name="name"
                   id="name"
-                  className="code-payment"
-                  value="OIHWEFOIWHF"
+                  className="date-payment"
+                  value="Reservation Date: Jan 18 - 20 - 2021"
                 ></input>
               </section>
               <section className="identity-order">
-                <textarea id="identity" name="identity" rows="4" cols="20">
+                <textarea id="identity" name="identity" rows="4" cols="20" className="detailIdentity">
                   Identity : Samantha Doe (+6290987682) samanthadoe@mail.com
                 </textarea>
               </section>
@@ -88,9 +86,14 @@ class Payment extends Component {
           </section>
         </section>
         <section className="payment-methods">
+          <h3 className="paymentMethods">PAYMENT METHODS</h3>
           <section className="button-payment-methods">
-            <button className="transfer">Transfer</button>
-            <button className="cash">Cash</button>
+            <section className="buttonTransfer">
+              <button className="transfer">Transfer</button>
+            </section>
+            <section className="buttonCash">
+              <button className="cash">Cash</button>
+            </section>
           </section>
         </section>
         <section className="button-finish-payment">

@@ -15,14 +15,37 @@ class NewItem extends Component {
           <h1 className="title-additem">Add new item</h1>
         </section>
         <section className="detail-add-item">
-          <section className="image-add-item">
-          </section>
+          <section className="image-add-item"></section>
           <section className="input-add-item">
-            <input type="text" value="Name (max up to 50 words)" /> <br />
-            <input type="text" value="Location" /> <br />
-            <input type="text" value="Description (max up to 150 words)" />
+            <input
+              placeholder="Name (max up to 50 words)"
+              type="text"
+              name="name"
+              id="name"
+              className="nameVehicle"
+            ></input>
+            <input
+              placeholder="Location"
+              type="text"
+              name="name"
+              id="name"
+              className="locationVehicle"
+            ></input> <br />
+            <input
+              placeholder="Description (max up to 150 words)"
+              type="text"
+              name="name"
+              id="name"
+              className="descriptionVehicle"
+            ></input>
             <p className="price-addItem">Price : </p>
-            <input type="text" value="Type of price" />
+            <input
+              placeholder="Type the price"
+              type="text"
+              name="name"
+              id="name"
+              className="priceVehicle"
+            ></input>
             <p className="status-item">Status : </p>
             <select id="status" name="status" className="status-addItem">
               <option value="statusCek">Select Status</option>
@@ -32,16 +55,15 @@ class NewItem extends Component {
           </section>
         </section>
         <section className="button-addItem">
-          <section>
+          <section className="dropdownVehicle">
             <select id="status" name="status" className="dropdown-addItem">
-              <option>Choose Category</option>
               <option value="statusCek">Add Item to</option>
               <option value="Available">Available</option>
               <option value="Full Booked">Full Booked</option>
             </select>
           </section>
           <section className="button-save-addItem">
-            <button>Save Item</button>
+            <button className="saveAddItem">Save Item</button>
           </section>
         </section>
 

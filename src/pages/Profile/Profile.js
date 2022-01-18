@@ -1,7 +1,9 @@
 import React from "react";
 // import { Button } from "react-bootstrap";
 // import axios from "axios";
-import { usersProfile } from '../../utils/https/users';
+
+import { Link } from "react-router-dom";
+import { usersProfile } from "../../utils/https/users";
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import ProfileImage from "../../assets/img-profile.png";
@@ -10,21 +12,21 @@ import "./Profile.css";
 class Profile extends React.Component {
   state = {
     userData: "",
-  }
+  };
   componentDidMount() {
     usersProfile()
-    .then((res) => {
-      // console.log(res.data.result[0])
-      const moment = require("moment")
-      let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD")
-      // console.log(DoB)
-      const result = {...res.data.result[0], DoB};
-      // console.log(result)
-      this.setState({
-        userData: result,
+      .then((res) => {
+        // console.log(res.data.result[0])
+        const moment = require("moment");
+        let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD");
+        // console.log(DoB)
+        const result = { ...res.data.result[0], DoB };
+        // console.log(result)
+        this.setState({
+          userData: result,
+        });
       })
-    })
-    .catch((err) => console.error(err));
+      .catch((err) => console.error(err));
   }
   render() {
     const { name, email, DoB, address, contact } = this.state.userData;
@@ -57,7 +59,7 @@ class Profile extends React.Component {
               name="email"
               id="email"
               defaultValue={email}
-              className="email-profile"             
+              className="email-profile"
             ></input>
           </div>
           <div className="edit-address">
@@ -67,7 +69,7 @@ class Profile extends React.Component {
               name="address"
               id="address"
               className="address"
-              defaultValue={address}       
+              defaultValue={address}
             ></input>
           </div>
           <div className="edit-number">
@@ -110,7 +112,9 @@ class Profile extends React.Component {
         </section>
         <section className="button-edit-profile">
           <button className="button-save">Save Change</button>
-          <button className="edit-password">Edit Password</button>
+          <Link to="/editPassword">
+            <button className="edit-password">Edit Password</button>
+          </Link>
           <button className="button-cancel">Cancel</button>
         </section>
         <Footer />

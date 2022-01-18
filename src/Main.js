@@ -15,9 +15,13 @@ import MoreDetail from "./pages/ViewMoreDetail2";
 import Reservation from "./pages/Reservation";
 import Payment from "./pages/Payment";
 import NewItem from "./pages/AddNewItem";
+import EditItem from "./pages/EditItem";
 import ChatList from "./pages/ChatList";
 import ChatDetail from "./pages/ChatDetail";
 import NotFound from "./pages/NotFound";
+import getImage from "./pages/Profile/getImage";
+import History from "./pages/History";
+import EditPassword from "./pages/EditPassword";
 
 function Main() {
   const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
@@ -59,6 +63,7 @@ function Main() {
           />
           <Route path="/vehicleType" component={VehicleType} />
           <Route path="/moreDetail" component={MoreDetail} />
+          <Route path="/getImage" component={getImage} />
           <Route 
           path="/reservation" 
           render={(routerProps) => {
@@ -81,6 +86,13 @@ function Main() {
           }}
           />
           <Route 
+          path="/editItem" 
+          render={(routerProps) => {
+            if (!token) return <Redirect to="/login" />;
+            return <EditItem {...routerProps} />
+          }}
+          />
+          <Route 
           path="/chatList"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
@@ -92,6 +104,20 @@ function Main() {
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <ChatDetail {...routerProps} />;
+          }}
+          />
+          <Route 
+          path="/history"
+          render={(routerProps) => {
+            if (!token) return <Redirect to="/login" />;
+            return <History {...routerProps} />;
+          }}
+          />
+          <Route 
+          path="/editPassword"
+          render={(routerProps) => {
+            if (!token) return <Redirect to="/login" />;
+            return <EditPassword {...routerProps} />;
           }}
           />
           <Route path="*" component={NotFound} />

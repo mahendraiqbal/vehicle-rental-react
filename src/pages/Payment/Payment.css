@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Nunito:wght@300&family=Playfair+Display:wght@600&display=swap');
+
 .back-payment{
     margin-top: 20px;
 }
@@ -16,6 +20,43 @@
     /* height: 500px; */
 }
 
+.brand-payment-title{
+    padding: 0% 5%;
+}
+
+.city-payment{
+    padding: 0% 5%;
+}
+
+.prepayment-payment{
+    padding: 0% 5%;
+}
+
+.button-title-payment{
+    text-align: center;
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    border: 0;
+    margin-bottom: 5%;
+}
+
+.button-payment-title{
+    text-align: center;
+}
+
+.code-name{
+    padding: 0% 5%;
+    margin: 0;
+}
+
+.code-payment{
+    margin-left: 5%;
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+}
+
 .code-rental-payment{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -23,6 +64,7 @@
 
 .order-payment{
     text-align: center;
+    margin-top: 5%;
 }
 
 .order-payment-detail{
@@ -49,8 +91,89 @@
   border-radius: 5px;
   border: 0;
   font-size: 1em;
-  background-color: #FFCD61;
-  color: black;
+  background-color: black;
+  color: #FFCD61;
   font-weight: bold;
-  width: 100%;
+  width: 90%;
+}
+
+.date-order{
+    margin-top: 5%;
+}
+
+.identity-order{
+    margin-top: 5%;
+}
+
+.price-order{
+    width: 100%;
+}
+
+.qty-order{
+    width: 100%;
+}
+
+.qty-orderPayment{
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.date-orderPayment{
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.priceDetails{
+    width: 80%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.detailIdentity{
+    width: 80%;
+    border-radius: 10px;
+}
+
+.date-payment{
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.paymentMethods{
+    margin-top: 5%;
+    color: black;
+    text-align: center;
+}
+
+.buttonTransfer{
+    text-align: end;
+    width: 90%;
+}
+
+.cash{
+    height: 50px;
+    border-radius: 10px;
+}
+
+.transfer{
+    height: 50px;
+    border-radius: 10px;
+    background-color: #FFCD61;
+    border: 0;
+    filter: contrast(100%);
+}
+
+.buttonCash{
+    text-align: start;
+    width: 90%;
+}
+
+.button-finish-payment{
+    margin-top: 5%;
+    text-align: center;
 }

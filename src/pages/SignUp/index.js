@@ -4,6 +4,7 @@ import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import iconGoogle from "../../assets/icon-google.png"
 
 function index(props) {
@@ -67,7 +68,9 @@ function index(props) {
             <button className="sign-up-google">Sign Up With Google</button>
           </div>
           <div className="button-LoginSignUp">
-            <button className="signUpLogin">Login</button>
+            <Link to="/login">
+              <button className="signUpLogin">Login</button>
+            </Link>
           </div> <br/> <br/>
           <footer>
               <div className="icon-signUp"><img src={icon} className="icon-rental-signup" alt="icon_rental"></img></div>
