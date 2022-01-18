@@ -54,7 +54,7 @@ class NewItem extends Component {
             </select>
           </section>
         </section>
-        <section className="button-addItem">
+        <section className="button-addItemVehicle">
           <section className="dropdownVehicle">
             <select id="status" name="status" className="dropdown-addItem">
               <option value="statusCek">Add Item to</option>

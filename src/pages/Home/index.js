@@ -24,7 +24,7 @@ class Home extends React.Component {
       .then((res) => {
         console.log("RESPONSE", res.data.result);
         this.setState({
-          dataVehicle: res.data.result[3],
+          dataVehicle: res.data.result[0],
         });
       })
       .catch((err) => console.error(err));
