@@ -10,12 +10,12 @@ export const usersProfile = () => {
     });
 };
 
-const editProfile = process.env.REACT_APP_HOST = "/users";
+const editProfile = process.env.REACT_APP_HOST + "/users";
 export const editUsers = (body) => {
     return axios.patch(editProfile, body);
 }
 
-const userById = process.env.REACT_APP_HOST = "/users/:id";
+const userById = process.env.REACT_APP_HOST + "/users/:id";
 export const getUsersById = (body) => {
     return axios.get(userById, body);
 }

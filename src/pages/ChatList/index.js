@@ -2,7 +2,7 @@ import React from "react";
 import "./chatList.css";
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-// import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 import userPhoto from '../../assets/img-profile.png'
 
@@ -26,7 +26,10 @@ function index() {
         </select>
       </section>
       <section className="chat-chatList">
-          <img src={userPhoto} alt="userPhoto" className="photoUser"></img>
+        <Link to="/chatDetail">
+           <img src={userPhoto} alt="userPhoto" className="photoUser"></img>
+        </Link>
+         
           <section className="chatting">
               <p className="userName">User 1</p>
               <p className="userChatting">Hey, is the vespa still available?</p>

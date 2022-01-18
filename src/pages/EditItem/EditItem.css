@@ -19,8 +19,9 @@
 }
 
 .button-addItem{
+    margin-top: 5%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 40% 30% 30%;
     text-align: center;
 }
 
@@ -102,4 +103,23 @@
     height: 50px;
     border-radius: 10px;
     background-color: #FFCD61;
+}
+
+.button-delete-addItem{
+    /* text-align: end; */
+    width: 90%;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 2%;
+}
+
+.deleteAddItem{
+    text-align: end;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    border-radius: 10px;
+    background-color: black;
+    color: #FFCD61;
 }

@@ -18,21 +18,21 @@ class EditItem extends Component {
           <section className="image-add-item"></section>
           <section className="input-add-item">
             <input
-              placeholder="Name (max up to 50 words)"
+              value="Fixie - Gray Only"
               type="text"
               name="name"
               id="name"
               className="nameVehicle"
             ></input>
             <input
-              placeholder="Location"
+              value="Yogyakarta"
               type="text"
               name="name"
               id="name"
               className="locationVehicle"
             ></input> <br />
             <input
-              placeholder="Description (max up to 150 words)"
+              value="Up to 1 person, return before 4 PM"
               type="text"
               name="name"
               id="name"
@@ -40,7 +40,7 @@ class EditItem extends Component {
             ></input>
             <p className="price-addItem">Price : </p>
             <input
-              placeholder="Type the price"
+              value="Rp. 78.000"
               type="text"
               name="name"
               id="name"
@@ -48,7 +48,7 @@ class EditItem extends Component {
             ></input>
             <p className="status-item">Status : </p>
             <select id="status" name="status" className="status-addItem">
-              <option value="statusCek">Select Status</option>
+              {/* <option value="statusCek">Select Status</option> */}
               <option value="Available">Available</option>
               <option value="Full Booked">Full Booked</option>
             </select>
@@ -63,7 +63,10 @@ class EditItem extends Component {
             </select>
           </section>
           <section className="button-save-addItem">
-            <button className="saveAddItem">Save Item</button>
+            <button className="saveAddItem">Save changes</button>
+          </section>
+          <section className="button-delete-addItem">
+            <button className="deleteAddItem">Delete</button>
           </section>
         </section>
 

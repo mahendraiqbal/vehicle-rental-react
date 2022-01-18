@@ -11,7 +11,7 @@ import Detail from "./pages/Detail/index";
 import getProfile from "./pages/Profile/getProfile";
 import ForgotPassword from "./pages/ForgotPassword";
 import VehicleType from "./pages/VehicleType/index";
-import MoreDetail from "./pages/ViewMoreDetail2";
+import MoreDetail from "./pages/ViewMoreDetail";
 import Reservation from "./pages/Reservation";
 import Payment from "./pages/Payment";
 import NewItem from "./pages/AddNewItem";
@@ -40,7 +40,7 @@ function Main() {
           <Route 
           path="/signUp" 
           render={(routerProps) => {
-            if (token) return <Redirect to="/home" />;
+            if (token) return <Redirect to="/login" />;
             return <SignUp {...routerProps} />;
           }}
           />
