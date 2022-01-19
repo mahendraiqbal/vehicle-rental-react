@@ -1,9 +1,9 @@
-import React from "react";
+import React, { createRef } from "react";
 // import { Button } from "react-bootstrap";
-// import axios from "axios";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
-import { usersProfile } from "../../utils/https/users";
+import { usersProfile, editUsers } from "../../utils/https/users";
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 // import ProfileImage from "../../assets/img-profile.png";
@@ -13,11 +13,15 @@ import "./Profile.css";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.edit = React.createRef();
+    this.target = createRef(null);
+    // console.log(this.target)
+    // console.log(this.state)
   }
   state = {
     userData: "",
     photoProfile: require("../../assets/man.png"),
+    chooseGender: "",
+    chooseFile: null,
   };
 
   getDataUser = () => {
@@ -29,34 +33,106 @@ class Profile extends React.Component {
         let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD");
         const result = { ...res.data.result[0], DoB };
 
-        if (image === 'null') {
+        // console.log(res.data.result[0]);
+
+        if (image === "null") {
           this.setState({
-            photoProfile: process.env.REACT_APP_HOST + `$/{image}`
-          })
+            photoProfile: process.env.REACT_APP_HOST + `$/{image}`,
+          });
         }
         this.setState({
           userData: result,
+          chooseGender: res.data.result[0].gender,
         });
+        // console.log(result)
       })
       .catch((err) => console.error(err));
   };
 
   componentDidMount() {
     this.getDataUser();
+    // console.log(this.getDataUser)
+  }
+
+  genderChange = (e) => {
+    // console.log(this.setState)
+    this.setState({
+      chooseGender: e.target.value,
+    });
+  };
+
+  fileHandler = (e) => {
+    // console.log(e.target.files[0]);
+    const uploadPhoto = e.target.files[0];
+    this.setState({
+      chooseFile: e.target.files[0],
+      photoProfile: URL.createObjectURL(uploadPhoto),
+    });
+  };
+
+  submitHandler = (e) => {
+    e.preventDefault();
+    const URL = process.env.REACT_APP_HOST + "/users";
+    const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
+    const body = new FormData();
+    if (this.state.chooseFile !== null) {
+      body.append(
+        "image",
+        this.state.chooseFile,
+        this.state.chooseFile.name,
+      );
+    }
+    // console.log(e)
+    body.append("name", this.state.name);
+    body.append("email", this.state.email);
+    body.append("gender", this.state.chooseGender);
+    body.append("address", this.state.address);
+    body.append("contact", this.state.contact);
+    body.append("DoB", this.state.DoB);
+
+    axios
+    .patch(URL, body, {
+      headers: {
+        "x-access-token": token,
+      }
+    })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => console.error(err))
+  }
+  cancelHandler = (e) => {
+    const image = this.state.userData.image;
+    if (image !== null && typeof image !== "undefined") {
+      this.setState({
+        photoProfile: process.env.REACT_APP_HOST + `$/{image}`,
+      });
+    }
+    this.setState({
+      chooseGender: this.state.userData.gender,
+    })
   }
   render() {
     const { name, email, DoB, address, contact } = this.state.userData;
-    const { photoProfile } = this.state
+    const { photoProfile, chooseGender } = this.state;
+    let isMale = false;
+    if (chooseGender === 1 || chooseGender === '1') isMale = true;
+    // console.log(isMale)
     return (
       <main className="container">
         <Navbar />
-        <section className="container-fluid photoProfile">
+        <section className="photoProfile">
           <img
             src={photoProfile}
             className="image-profile"
             alt="ProfileImage"
           />
-          <img src={iconEdit} className="editProfile" alt="edit icon" />
+          <img 
+            src={iconEdit} 
+            className="editProfile" 
+            alt="editIcon" 
+            onClick={() => this.target.current.click()}
+          />
         </section>
         <section className="info-profile">
           <p className="name-profile">{name}</p>
@@ -65,12 +141,37 @@ class Profile extends React.Component {
           <p className="text-profile">Has been active since 2013</p>
         </section>
         <section className="radio-button">
-          <input type="radio" name="gender-select" id="male"></input>
+          <input 
+          type="radio" 
+          name="gender-select" 
+          id="male"
+          defaultValue={1}
+          checked={isMale}
+          onChange={this.genderChange.bind(this)}
+          />
           <label>Male</label>
-          <input type="radio" name="gender-select" id="female"></input>
+          <input 
+          type="radio" 
+          name="gender-select" 
+          id="female"
+          defaultValue={2}
+          checked={!isMale}
+          onChange={this.genderChange.bind(this)}
+          />
           <label>Female</label>
         </section>
-        <section className="edit-profile">
+        <form 
+          className="edit-profile"
+          onSubmit={this.submitHandler}
+          onReset={this.cancelHandler}
+        >
+          <input 
+            type="file"
+            onChange={this.fileHandler}
+            ref={this.target}
+            className="inputUpload"
+          />
+
           Contacts
           <div className="edit-email">
             <h5 className="title-edit">Email address :</h5>
@@ -129,14 +230,15 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-        </section>
+        
         <section className="button-edit-profile">
-          <button className="button-save">Save Change</button>
+          <button type="submit" className="button-save">Save Change</button>
           <Link to="/editPassword">
             <button className="edit-password">Edit Password</button>
           </Link>
-          <button className="button-cancel">Cancel</button>
+          <button type="reset" className="button-cancel">Cancel</button>
         </section>
+        </form>
         <Footer />
       </main>
     );

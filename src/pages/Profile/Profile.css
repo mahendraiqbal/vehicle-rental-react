@@ -1,201 +1,452 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .info-profile {
-    text-align: center;
-    /* padding: 5% 5%; */
+  text-align: center;
+  /* padding: 5% 5%; */
 }
 
-p{
-    text-align: center;
-    margin: 0;
+p {
+  text-align: center;
+  margin: 0;
 }
 
-.name-profile{
-    text-align: center;
-    font-size: 30px;
-    color: black;
-    font-family: 'Nunito', sans-serif;
+.name-profile {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  font-family: "Nunito", sans-serif;
 }
 
-.text-profile{
-    text-align: center;
+.text-profile {
+  text-align: center;
+}
+
+.inputUpload {
+  display: none;
 }
 
 /* .container-fluid{
     width: 50%;
 } */
 
-.photoProfile{
-    border: none;
-    text-align: center;
-    /* width: 50px; */
+.photoProfile {
+  border: none;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  object-fit: cover;
+  display: block;
 }
 
-.editProfile{
-    width: 40px;
-    height: 40px;
-    position: relative;
-    right: 4%;
-    margin-top: 12%;
+.editProfile {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  left: 40%;
+  bottom: 20%;
 }
 
 .image-profile {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    border-radius: 100%;
-    position: relative;
+  /* width: 200px;
+    height: 200px; */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 100%;
+  position: relative;
 }
 
-.edit-profile{
-    text-align: start;
+.edit-profile {
+  text-align: start;
 }
 
-.identity{
-    display: grid;
-    grid-template-columns: 50% 50%;
+.identity {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 h4 {
-    font-size: 18px;
-    font-weight: lighter;
-    color: #b8b8b8;
-    font-family: 'Nunito', sans-serif;
-    filter: contrast(50%);
+  font-size: 18px;
+  font-weight: lighter;
+  color: #b8b8b8;
+  font-family: "Nunito", sans-serif;
+  filter: contrast(50%);
 }
 
 .container-2 {
-    display: grid;
-    grid-template-columns: auto;
-    /* padding: 0 5%; */
-    text-align: center;
-    grid-template-rows: auto;
+  display: grid;
+  grid-template-columns: auto;
+  /* padding: 0 5%; */
+  text-align: center;
+  grid-template-rows: auto;
 }
 
-.radio-button{
-    text-align: center;
+.radio-button {
+  text-align: center;
 }
-
 
 .container-3 {
-    display: grid;
-    grid-template-columns: auto;
-    padding: 5% 5%;
-    text-align: left;
-    grid-template-rows: auto;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 5% 5%;
+  text-align: left;
+  grid-template-rows: auto;
 }
 
 .header-text {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
 }
 
 h5 {
-    color: #b8b8b8;
-    text-align: left;
-    font-size: 16px;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
+  color: #b8b8b8;
+  text-align: left;
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
 }
 
-.title-edit{
-    color: black;
+.title-edit {
+  color: black;
 }
 
 .edit-email,
 .edit-address,
 .edit-number {
-    padding: 1% 1%;
+  padding: 1% 1%;
 }
 
 .email-profile,
 .address,
 .number {
-    padding: 1% 1%;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1% solid black;
-    width: 100%;
+  padding: 1% 1%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1% solid black;
+  width: 100%;
 }
 
 .identity {
-    display: grid;
-    grid-template-columns: 50% 50%;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .display-name,
 .display-date {
-    padding: 2%;
-    text-align: center;
+  padding: 2%;
+  text-align: center;
 }
 
 .name-profile-input {
-    padding: 1% 1%;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1% solid black;
-    width: 100%;
+  padding: 1% 1%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1% solid black;
+  width: 100%;
 }
 
 .date-profile {
-    padding: 1% 1%;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1% solid black;
-    width: 100%;
+  padding: 1% 1%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1% solid black;
+  width: 100%;
 }
 
 .button-edit-profile {
-    padding: 5% 5%;
-    display: grid;
-    grid-template-columns: 40% 40% 20%;
-    font-family: 'Nunito', sans-serif;
-    font-weight: 900;
+  padding: 5% 5%;
+  display: grid;
+  grid-template-columns: 40% 40% 20%;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
 }
 
 .button-save {
-    width: 90%;
-    height: 100%;
-    background-color: #FFCD61;
-    color: black;
-    border-radius: 5px;
-    font-weight: bold;
-    border: 0;
-    text-align: center;
+  width: 90%;
+  height: 100%;
+  background-color: #ffcd61;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 0;
+  text-align: center;
 }
 
 .edit-password {
-    width: 90%;
-    height: 100%;
-    background-color: black;
-    color: #FFCD61;
-    border-radius: 5px;
-    font-weight: bold;
-    border: 0;
-    text-align: center;
+  width: 90%;
+  height: 100%;
+  background-color: black;
+  color: #ffcd61;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 0;
+  text-align: center;
 }
 
 .button-cancel {
+  width: 100%;
+  height: 50px;
+  background-color: #cbcbd445;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+  .image-profile {
+    border-radius: 100%;
+    height: 100%;
     width: 100%;
-    height: 50px;
-    background-color: #CBCBD445;
+    text-align: center;
+  }
+
+  .photoProfile {
+    border: none;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .editProfile{
+      width: 30px;
+      height: 30px;
+  }
+
+  .icon-edit {
+    width: 5%;
+    top: 14%;
+    right: 6%;
+  }
+
+  .button-save {
+    width: 90%;
+    height: 100%;
+    background-color: #ffcd61;
     color: black;
     border-radius: 5px;
     font-weight: bold;
     border: 0;
     text-align: center;
+  }
+
+  .edit-password {
+    width: 90%;
+    height: 100%;
+    background-color: black;
+    color: #ffcd61;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .button-cancel {
+    width: 100%;
+    height: 60px;
+    background-color: #cbcbd445;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 2% 4%;
+  }
+
+  nav {
+    padding: 2%;
+  }
+
+  .image-profile {
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .photoProfile {
+    border: none;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .icon-edit {
+    width: 5%;
+    top: 13%;
+    right: 6%;
+  }
+
+  .button-save {
+    width: 90%;
+    height: 100%;
+    background-color: #ffcd61;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .edit-password {
+    width: 90%;
+    height: 100%;
+    background-color: black;
+    color: #ffcd61;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .button-cancel {
+    width: 100%;
+    height: 50px;
+    background-color: #cbcbd445;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .icon-rental-2 {
+    width: 12%;
+    height: 20%;
+    padding-bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  nav ul li {
+    font-size: 8px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .image-profile {
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .photoProfile {
+    border: none;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .editProfile{
+      width: 30px;
+      height: 30px;
+  }
+
+  .icon-message {
+    width: 25%;
+    height: 40%;
+  }
+
+  .icon-profile {
+    width: 20px;
+  }
+
+  .icon-edit {
+    width: 6%;
+    top: 10%;
+    right: 8%;
+  }
+
+  .container-4 {
+    padding: 5% 5%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+  }
+
+  .button-save {
+    width: 100%;
+    height: 100%;
+    background-color: #ffcd61;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .edit-password {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: #ffcd61;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .button-cancel {
+    width: 100%;
+    height: 30px;
+    background-color: #cbcbd445;
+    color: black;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 0;
+    text-align: center;
+  }
+
+  .icon-rental-2 {
+    width: 4%;
+    height: 20%;
+  }
+
+  .destination,
+  .vehicle,
+  .interest ul li {
+    font-size: 12px;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+  }
+
+  .item-1 {
+    grid-row: 25% 25% 25% 25%;
+  }
 }

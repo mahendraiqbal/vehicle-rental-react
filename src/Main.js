@@ -8,7 +8,7 @@ import SignUp from "./pages/SignUp/index";
 import Login from "./pages/Login/index";
 import Home from "./pages/Home/index";
 import Detail from "./pages/Detail/index";
-import getProfile from "./pages/Profile/getProfile";
+// import getProfile from "./pages/Profile/getProfile";
 import ForgotPassword from "./pages/ForgotPassword";
 import VehicleType from "./pages/VehicleType/index";
 import MoreDetail from "./pages/ViewMoreDetail";
@@ -19,7 +19,7 @@ import EditItem from "./pages/EditItem";
 import ChatList from "./pages/ChatList";
 import ChatDetail from "./pages/ChatDetail";
 import NotFound from "./pages/NotFound";
-import getImage from "./pages/Profile/getImage";
+// import getImage from "./pages/Profile/getImage";
 import History from "./pages/History";
 import EditPassword from "./pages/EditPassword";
 
@@ -45,15 +45,6 @@ function Main() {
             return <SignUp {...routerProps} />;
           }}
           />
-          <Route path="/detail" component={Detail} />;
-          <Route 
-          path="/profile" 
-          render={(routerProps) => {
-            if (!token) return <Redirect to="login" />;
-            return <Profile {...routerProps} />
-          }}
-          />
-          <Route path="/getProfile" component={getProfile} />;
           <Route 
           path="/forgotPassword" 
           render={(routerProps) => {
@@ -63,7 +54,14 @@ function Main() {
           />
           <Route path="/vehicleType" component={VehicleType} />
           <Route path="/moreDetail" component={MoreDetail} />
-          <Route path="/getImage" component={getImage} />
+          {/* <Route path="/getImage" component={getImage} /> */}
+          <Route path="/detail" component={Detail} />;
+          <Route path="/profile" render={(routerProps) => {
+            if (!token) return <Redirect to="/login" />
+            return <Profile {...routerProps} />
+          }}
+          />
+          {/* <Route path="/getProfile" component={getProfile} />; */}
           <Route 
           path="/reservation" 
           render={(routerProps) => {

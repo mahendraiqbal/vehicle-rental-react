@@ -32,15 +32,15 @@ p {
   color: black;
 }
 
-.destination ul li{
+.destination ul li {
   list-style-type: none;
 }
 
-.vehicle ul li{
+.vehicle ul li {
   list-style-type: none;
 }
 
-.interest ul li{
+.interest ul li {
   list-style-type: none;
 }
 
@@ -71,7 +71,32 @@ p {
 
 @media screen and (max-width: 960px) {
   .icon-rental-footer {
-    width: 17%;
-    height: 20%;
+    width: 14%;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .icon-rental-footer {
+    width: 15%;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .icon-rental-footer {
+    width: 11%;
+    height: 70px;
+  }
+
+.item1{
+  padding-bottom: 50%;
+}
+
+  .footer-rental {
+    display: grid;
+    padding: 5% 5%;
+    grid-template-columns: auto;
+    grid-template-rows: 25% 25% 25% 25%;
   }
 }

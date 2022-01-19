@@ -32,3 +32,21 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 960px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 520px) {
+    .button-minus-counter{
+        width: 30px;
+        height: 30px;
+    }
+
+    .button-plus-counter{
+        width: 30px;
+        height: 30px;
+    }
+}

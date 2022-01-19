@@ -10,7 +10,7 @@ export const usersProfile = () => {
     });
 };
 
-const editProfile = process.env.REACT_APP_HOST + "/users";
+const editProfile = process.env.REACT_APP_HOST + "/users/profile";
 export const editUsers = (body) => {
     return axios.patch(editProfile, body, {
         headers: {
