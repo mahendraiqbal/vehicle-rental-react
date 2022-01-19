@@ -29,10 +29,11 @@ function Main() {
     <ReduxProvider store={store}>
       <Router>
         <Switch>
+          <Route exact path="/" component={Home} />;
           <Route 
           path="/login"
           render={(routerProps) => {
-            if (token) return <Redirect to="/home" />;
+            if (token) return <Redirect to="/" />;
             return <Login {...routerProps} />;
           }}
           component={Login} 
@@ -44,7 +45,6 @@ function Main() {
             return <SignUp {...routerProps} />;
           }}
           />
-          <Route path="/home" component={Home} />;
           <Route path="/detail" component={Detail} />;
           <Route 
           path="/profile" 
@@ -57,7 +57,7 @@ function Main() {
           <Route 
           path="/forgotPassword" 
           render={(routerProps) => {
-            if (token) return <Redirect to="/home" />;
+            if (token) return <Redirect to="/login" />;
             return <ForgotPassword {...routerProps} />;
           }}
           />

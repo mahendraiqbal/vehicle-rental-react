@@ -37,11 +37,13 @@ class index extends React.Component {
     if (this.props.auth.isFulfilled === true) {
       localStorage["vehicle-rental-token"] = JSON.stringify(this.props.auth.userData.token);
       console.log(this.props.auth.userData.token)
-      this.props.history.push("/home")
+      localStorage["vehicle-rental-photo"] = this.props.auth.userData.photo;
+      console.log(this.props.auth.userData)
+      this.props.history.push("/")
     }
   }
   render() {
-    if (this.props.auth.isFulfilled) return <Redirect to="/home"/>;
+    if (this.props.auth.isFulfilled) return <Redirect to="/"/>;
     return (
       <main>
         <Row>

@@ -24,7 +24,7 @@ class VehicleType extends React.Component {
     .catch((err) => console.error(err))
   }
   render() {
-    const { image } = this.state.vehicleData;
+    // const { image } = this.state.vehicleData;
     return (
       <main>
         <Header />
@@ -44,7 +44,7 @@ class VehicleType extends React.Component {
             <button className="viewAll">View All ></button>
           </div>
           <section className="card-vehicletype">
-           <div className="gambarCoba">{image}</div>
+           <div className="gambarCoba"></div>
           </section>
         </section>
         <section className="main-title">

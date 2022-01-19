@@ -10,7 +10,7 @@ function index() {
       <section className="backToHome">
         <img src={NotFound} alt="notFound" className="notFound"></img>
         {/* <button className="buttonBack">Back to Home</button> */}
-        <Link to="/home">Back to Home</Link>
+        <Link to="/">Back to Home</Link>
       </section>
     </main>
   );

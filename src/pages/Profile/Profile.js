@@ -6,39 +6,59 @@ import { Link } from "react-router-dom";
 import { usersProfile } from "../../utils/https/users";
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-import ProfileImage from "../../assets/img-profile.png";
+// import ProfileImage from "../../assets/img-profile.png";
+import iconEdit from "../../assets/edit-profile.png";
 import "./Profile.css";
 
 class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.edit = React.createRef();
+  }
   state = {
     userData: "",
+    photoProfile: require("../../assets/man.png"),
   };
-  componentDidMount() {
+
+  getDataUser = () => {
+    const image = localStorage.getItem("vehicle-rental-photo");
+
     usersProfile()
       .then((res) => {
-        // console.log(res.data.result[0])
         const moment = require("moment");
         let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD");
-        // console.log(DoB)
         const result = { ...res.data.result[0], DoB };
-        // console.log(result)
+
+        if (image === 'null') {
+          this.setState({
+            photoProfile: process.env.REACT_APP_HOST + `$/{image}`
+          })
+        }
         this.setState({
           userData: result,
         });
       })
       .catch((err) => console.error(err));
+  };
+
+  componentDidMount() {
+    this.getDataUser();
   }
   render() {
     const { name, email, DoB, address, contact } = this.state.userData;
+    const { photoProfile } = this.state
     return (
       <main className="container">
         <Navbar />
-        <section className="info-profile">
+        <section className="container-fluid photoProfile">
           <img
-            src={ProfileImage}
+            src={photoProfile}
             className="image-profile"
             alt="ProfileImage"
-          ></img>
+          />
+          <img src={iconEdit} className="editProfile" alt="edit icon" />
+        </section>
+        <section className="info-profile">
           <p className="name-profile">{name}</p>
           <p className="text-profile">{email}</p>
           <p className="text-profile">{contact}</p>

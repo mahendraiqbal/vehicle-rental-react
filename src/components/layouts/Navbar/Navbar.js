@@ -1,7 +1,7 @@
 import React from "react";
 import icon from "../../../assets/icon.png";
 import message from "../../../assets/message.png";
-import iconProfile from "../../../assets/img-profile.png";
+import iconProfile from "../../../assets/man.png";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
@@ -11,13 +11,13 @@ class Header extends React.Component {
   state= {
     userToken: "",
     isLogin:false,
-    userProfile: require("../../../assets/img-profile.png")
+    photoProfile: require("../../../assets/img-profile.png")
   };
 
   onLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("vehicle-rental-token");
-    // localStorage.removeItem("vehicle-rental-photo")
+    localStorage.removeItem("vehicle-rental-photo");
 
     this.setState({
       userToken: "",
@@ -27,9 +27,15 @@ class Header extends React.Component {
 
   componentDidMount(){
     const token = localStorage.getItem("vehicle-rental-token");
-    // const imgProfile = localStorage.getItem("vehicle-rental-photo");
+    const photoProfile = localStorage.getItem("vehicle-rental-photo");
 
-    if(token) {
+    if (photoProfile !== 'null') {
+      this.setState({
+        photoProfile: process.env.REACT_APP_HOST + `/${photoProfile}`
+      })
+    }
+
+    if (token) {
       this.setState({
         userToken: JSON.parse(token),
         isLogin: true,
@@ -38,7 +44,7 @@ class Header extends React.Component {
   }
   render() {
     const { isLogin } = this.state;
-    console.log(isLogin);
+    // console.log(isLogin);
     return (
     <Navbar>
       <Container className="header">
@@ -46,7 +52,7 @@ class Header extends React.Component {
           <img src={icon} alt="icon" className="icon-header"></img>
         </Navbar.Brand>
         <Nav className="navbar">
-          <Nav.Link as={NavLink} exact to="/home">Home</Nav.Link>
+          <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
           <Nav.Link as={NavLink} to="/vehicleType">Vehicle Type</Nav.Link>
           <Nav.Link as={NavLink} to="/history">History</Nav.Link>
           <Nav.Link as={NavLink} to="/about">About</Nav.Link>

@@ -22,7 +22,7 @@ class Home extends React.Component {
   componentDidMount() {
     popular()
       .then((res) => {
-        console.log("RESPONSE", res.data.result);
+        // console.log("RESPONSE", res.data.result);
         this.setState({
           dataVehicle: res.data.result[0],
         });
@@ -31,7 +31,7 @@ class Home extends React.Component {
   }
   render() {
     const { brand, city } = this.state.dataVehicle;
-    console.log(brand)
+    // console.log(brand)
     // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
     // if (!token) return <Redirect to="/login" />;
     // // console.log(this.props.auth)
