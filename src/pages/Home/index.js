@@ -24,7 +24,7 @@ class Home extends React.Component {
       .then((res) => {
         console.log("RESPONSE", res.data.result);
         this.setState({
-          dataVehicle: res.data.result[0],
+          dataVehicle: res.data.result[3],
         });
       })
       .catch((err) => console.error(err));
@@ -86,6 +86,45 @@ class Home extends React.Component {
         <section className="popular">
           <h3>Popular in town</h3>
           <div className="card-popular">
+            <div className="image-card">
+              <Link to="/detail">
+              <img
+                src={imageDefault}
+                alt="imageCard"
+                className="image-popularCard"
+              ></img>
+              <figcaption className="caption">
+                <span className="figcaption-brand">{brand}</span>
+                <span className="figcaption-city">{city}</span>
+              </figcaption>
+              </Link>
+            </div>
+            <div className="image-card">
+              <Link to="/detail">
+              <img
+                src={imageDefault}
+                alt="imageCard"
+                className="image-popularCard"
+              ></img>
+              <figcaption className="caption">
+                <span className="figcaption-brand">{brand}</span>
+                <span className="figcaption-city">{city}</span>
+              </figcaption>
+              </Link>
+            </div>
+            <div className="image-card">
+              <Link to="/detail">
+              <img
+                src={imageDefault}
+                alt="imageCard"
+                className="image-popularCard"
+              ></img>
+              <figcaption className="caption">
+                <span className="figcaption-brand">{brand}</span>
+                <span className="figcaption-city">{city}</span>
+              </figcaption>
+              </Link>
+            </div>
             <div className="image-card">
               <Link to="/detail">
               <img

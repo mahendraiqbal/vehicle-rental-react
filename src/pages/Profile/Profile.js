@@ -87,7 +87,7 @@ class Profile extends React.Component {
     body.append("email", e.target.email.value);
     body.append("gender", this.state.chooseGender);
     body.append("address", e.target.address.value);
-    body.append("contact", e.target.contact);
+    body.append("contact", e.target.contact.value);
     body.append("DoB", e.target.DoB.value);
 
     editUsers(body, token)
@@ -203,9 +203,9 @@ class Profile extends React.Component {
             <h5 className="title-edit">Mobile number:</h5>
             <input
               type="text"
-              name="number"
-              id="number"
-              className="number"
+              name="contact"
+              id="contact"
+              className="contact"
               defaultValue={contact}
             ></input>
           </div>

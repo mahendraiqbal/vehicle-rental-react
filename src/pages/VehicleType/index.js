@@ -1,26 +1,36 @@
 import React from "react";
+import axios from "axios";
+
 // import { popular } from "../../utils/https/vehicle"
-import { vehicle } from "../../utils/https/vehicle"
+import { allVehicle } from "../../utils/https/vehicle"
 
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-// import Card from "../../components/layouts/Card/Card";
+import Card from "../../components/layouts/Card/Card";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import "./index.css";
 
 class VehicleType extends React.Component {
   state = {
-    vehicleData: [],
+    vehiclePopular: [],
+    dataCars: [],
+    dataMotorbikes: [],
+    dataBikes: [],
   }
 
   componentDidMount() {
-    vehicle()
-    .then((res) => {
-      console.log("RESPONSE", res.data.result.data)
-      this.setState({
-        vehicleData: res.data.result.data[27],
+    allVehicle()
+    .then(
+      axios.spread((...res) => {
+        // console.log(res)
+        this.setState({
+          vehiclePopular: res[0].data.result,
+          dataCars: res[1].data.result.data,
+          dataMotorbikes: res[2].data.result.data,
+          dataBikes: res[3].data.result.data,
+        })
       })
-    })
+    )
     .catch((err) => console.error(err))
   }
   render() {
@@ -28,6 +38,7 @@ class VehicleType extends React.Component {
     return (
       <main>
         <Header />
+        <Card />
         <InputGroup className="mb-3">
           <FormControl
             placeholder="Search vehicle (ex. cars, cars name)"

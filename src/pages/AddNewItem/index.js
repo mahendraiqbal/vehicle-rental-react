@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { addVehicle } from "../../utils/https/vehicle";
+
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import iconBack from "../../assets/back.png";
@@ -6,6 +8,13 @@ import iconBack from "../../assets/back.png";
 import "./AddNew.css";
 
 class NewItem extends Component {
+  constructor(props) {
+    super(props);
+    this.inputFile1 = React.createRef();
+    this.inputFile1 = React.createRef();
+    this.inputFile1 = React.createRef();
+  }
+
   render() {
     return (
       <main className="container">
@@ -57,16 +66,17 @@ class NewItem extends Component {
         <section className="button-addItemVehicle">
           <section className="dropdownVehicle">
             <select id="status" name="status" className="dropdown-addItem">
-              <option value="statusCek">Add Item to</option>
-              <option value="Available">Available</option>
-              <option value="Full Booked">Full Booked</option>
+              <option value="" disable="true" hidden>Add Item to</option>
+              <option value="" className="choose-category" disabled>Choose Category</option>
+              <option value="Car">Car</option>
+              <option value="Motorbike">Motorbike</option>
+              <option value="Bike">Bike</option>
             </select>
           </section>
           <section className="button-save-addItem">
             <button className="saveAddItem">Save Item</button>
           </section>
         </section>
-
         <Footer />
         <hr />
         <div className="icon-footer">
