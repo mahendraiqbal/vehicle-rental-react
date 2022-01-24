@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addVehicle } from "../../utils/https/vehicle";
+// import { addVehicle } from "../../utils/https/vehicle";
 
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";

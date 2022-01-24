@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { vehicle } from "../../utils/https/vehicle";
+// import { vehicle } from "../../utils/https/vehicle";
 ;
 
 

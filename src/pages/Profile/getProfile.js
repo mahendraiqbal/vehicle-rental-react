@@ -31,7 +31,7 @@ class getProfile extends Component {
   }
   render() {
     // const notify = () => toast.success("Wow so easy!");
-    const { popular, car, motorbike, bike } = this.state;
+    // const { popular, car, motorbike, bike } = this.state;
     // console.log(this.state)
     return (
       // <div>

@@ -1,7 +1,7 @@
 import React, { createRef } from "react";
 // import { Button } from "react-bootstrap";
 // import axios from "axios";
-import { Modal } from "react-bootstrap";
+// import { Modal } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 import { Link } from "react-router-dom";
