@@ -1,46 +1,38 @@
-import React from "react";
-// import axios from "axios";
-import { usersProfile } from "../../utils/https/users";
+import React, { Component } from "react";
+import Card from "../../components/layouts/Card/Card";
+import { popular } from "../../utils/https/vehicle";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function Card(props) {
-  return (
-    <section className="card m-2">
-      <p>{props.name}</p>
-    </section>
-  )
-}
-
-class getProfile extends React.Component {
+class getProfile extends Component {
   state = {
-    users: [],
+    dataVehicle: [],
   };
+
   componentDidMount() {
-    usersProfile()
-      .then((response) => {
-        console.log("RESPONSE", response.data.result[52].image);
+    popular()
+      .then((res) => {
+        console.log(res.data.result);
         this.setState({
-          users: response.data.result,
+          dataVehicle: res.data.result,
         });
       })
-      .catch((error) => {
-        console.log("ERROR", error);
-      });
+      .catch((err) => console.error(err));
   }
-  getUsers = () => {
-    const { users } = this.state;
-    const usersView = [];
-    for (let idx = 0; idx < users.length; idx++) {
-      const element = <Card name={users[idx].name} key={idx} />;
-      usersView.push(element);
-    }
-    return usersView;
-  };
   render() {
+    const notify = () => toast("Wow so easy!");
+
     return (
-      <div>
-        <ul>{this.getUsers()}</ul>
-      </div>
+      // <div>
+      //   <Card />
+      // </div>
+
+    <div>
+      <button onClick={notify}>Notify!</button>
+      <ToastContainer />
+    </div>
     );
+    
   }
 }
 

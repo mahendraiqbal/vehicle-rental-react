@@ -8,11 +8,11 @@
 .jumbotron{
     background-image: url("../../assets/forgot-password.jpeg");
     background-size: cover;
-    filter: brightness(60%);
+    filter: brightness(90%);
     text-align: center;
 }
 
-.title{
+.titleForgotPassword{
     text-align: center;
     filter: contrast(100%);
 }
@@ -24,10 +24,11 @@
 }
 
 .inputEmailForgot{
-    border-radius: 5px;
+    border-radius: 10px;
     width: 30%;
     height: 50px;
     text-align: center;
+    border: 0;
 }
 
 .button-send {
@@ -36,7 +37,7 @@
     height: 50px;
     background-color: #FFCD61;
     color: black;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
     border: 0;
     text-align: center;

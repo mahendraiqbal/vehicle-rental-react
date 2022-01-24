@@ -8,7 +8,7 @@ import SignUp from "./pages/SignUp/index";
 import Login from "./pages/Login/index";
 import Home from "./pages/Home/index";
 import Detail from "./pages/Detail/index";
-// import getProfile from "./pages/Profile/getProfile";
+import getProfile from "./pages/Profile/getProfile";
 import ForgotPassword from "./pages/ForgotPassword";
 import VehicleType from "./pages/VehicleType/index";
 import MoreDetail from "./pages/ViewMoreDetail";
@@ -52,8 +52,8 @@ function Main() {
             return <ForgotPassword {...routerProps} />;
           }}
           />
-          <Route path="/vehicleType" component={VehicleType} />
-          <Route path="/moreDetail" component={MoreDetail} />
+          <Route path="/vehicle/type" component={VehicleType} />
+          <Route path="/vehicle/detail" component={MoreDetail} />
           {/* <Route path="/getImage" component={getImage} /> */}
           <Route path="/detail" component={Detail} />;
           <Route path="/profile" render={(routerProps) => {
@@ -61,7 +61,7 @@ function Main() {
             return <Profile {...routerProps} />
           }}
           />
-          {/* <Route path="/getProfile" component={getProfile} />; */}
+          <Route path="/getProfile" component={getProfile} />;
           <Route 
           path="/reservation" 
           render={(routerProps) => {
@@ -77,28 +77,28 @@ function Main() {
           }}
           />
           <Route 
-          path="/addItem" 
+          path="/vehicle/add" 
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <NewItem {...routerProps} />
           }}
           />
           <Route 
-          path="/editItem" 
+          path="/vehicle/edit" 
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <EditItem {...routerProps} />
           }}
           />
           <Route 
-          path="/chatList"
+          path="/chat/list"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <ChatList {...routerProps} />
           }} 
           />
           <Route 
-          path="/chatDetail"
+          path="/chat/detail"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <ChatDetail {...routerProps} />;
@@ -112,7 +112,7 @@ function Main() {
           }}
           />
           <Route 
-          path="/editPassword"
+          path="/edit/password"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <EditPassword {...routerProps} />;

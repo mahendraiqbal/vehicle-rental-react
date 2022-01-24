@@ -14,14 +14,14 @@ function ForgotPassword() {
             Back
           </div>
         </Link>
-        <h1 className="title">Don't Worry, we got your back!</h1>
+        <h1 className="titleForgotPassword">Don't Worry, we got your back!</h1>
         <input
           type="email"
           className="inputEmailForgot"
           id="email"
           placeholder="Input your email address"
           name="email"
-        />{" "}
+        />
         <br />
         <button className="button-send">Send Link</button>
         <p className="text-forgot">

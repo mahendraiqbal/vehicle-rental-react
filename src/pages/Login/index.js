@@ -36,9 +36,11 @@ class index extends React.Component {
   componentDidUpdate(){
     if (this.props.auth.isFulfilled === true) {
       localStorage["vehicle-rental-token"] = JSON.stringify(this.props.auth.userData.token);
-      console.log(this.props.auth.userData.token)
+      // console.log(this.props.auth.userData.token)
       localStorage["vehicle-rental-photo"] = this.props.auth.userData.photo;
-      console.log(this.props.auth.userData)
+      // console.log(this.props.auth.userData)
+      localStorage["vehicle-rental-roles"] = this.props.auth.userData.roles_id;
+      console.log(this.props.auth.userData.roles_id)
       this.props.history.push("/")
     }
   }

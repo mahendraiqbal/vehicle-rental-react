@@ -22,7 +22,7 @@ class Home extends React.Component {
   componentDidMount() {
     popular()
       .then((res) => {
-        // console.log("RESPONSE", res.data.result);
+        console.log("RESPONSE", res.data.result);
         this.setState({
           dataVehicle: res.data.result[0],
         });
@@ -31,6 +31,7 @@ class Home extends React.Component {
   }
   render() {
     const { brand, city } = this.state.dataVehicle;
+    const roles = JSON.parse(localStorage.getItem("vehicle-rental-roles"))
     // console.log(brand)
     // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
     // if (!token) return <Redirect to="/login" />;
@@ -41,7 +42,7 @@ class Home extends React.Component {
         <section className="container-1">
           <div className="form">
             <div>
-              <h1>
+              <h1 className="title-home">
                 Explore <br />
                 and Travel
               </h1>
@@ -75,7 +76,7 @@ class Home extends React.Component {
               </select>
               <input type="date" name="DoB" id="DoB" className="date"></input>
             </div>
-            <div className="button">
+            <div className="button-titleHome">
               <button type="button" className="button-explore">
                 Explore
               </button>
@@ -100,6 +101,15 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
+        { roles === 3 && (
+          <Link to="/vehicle/add">
+            <button className="btn btn-dark text-warning add-vehicle w-100 mt-4 mb-4">
+              Add vehicle
+            </button>
+          </Link>
+        )
+
+        }
         <section>
           <div className="testimonials">
             <div>

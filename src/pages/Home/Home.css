@@ -36,6 +36,11 @@ h1 {
   font-weight: bold;
 }
 
+.title-home{
+  font-family: "Playfair Display", sans-serif;
+  padding: 5% 0%;
+}
+
 .view-all {
   border: 0;
   background-color: #ffffff;
@@ -71,7 +76,7 @@ h2 {
   height: 110%;
 }
 
-.button {
+.button-titleHome {
   padding-top: 2%;
 }
 

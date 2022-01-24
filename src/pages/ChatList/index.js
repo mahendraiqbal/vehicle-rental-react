@@ -26,7 +26,7 @@ function index() {
         </select>
       </section>
       <section className="chat-chatList">
-        <Link to="/chatDetail">
+        <Link to="/chat/detail">
            <img src={userPhoto} alt="userPhoto" className="photoUser"></img>
         </Link>
          

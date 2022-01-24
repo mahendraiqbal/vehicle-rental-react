@@ -18,6 +18,7 @@ class Header extends React.Component {
     e.preventDefault();
     localStorage.removeItem("vehicle-rental-token");
     localStorage.removeItem("vehicle-rental-photo");
+    localStorage.removeItem("vehicle-rental-roles");
 
     this.setState({
       userToken: "",
@@ -53,12 +54,12 @@ class Header extends React.Component {
         </Navbar.Brand>
         <Nav className="navbar">
           <Nav.Link as={NavLink} exact to="/">Home</Nav.Link>
-          <Nav.Link as={NavLink} to="/vehicleType">Vehicle Type</Nav.Link>
+          <Nav.Link as={NavLink} to="/vehicle/type">Vehicle Type</Nav.Link>
           <Nav.Link as={NavLink} to="/history">History</Nav.Link>
           <Nav.Link as={NavLink} to="/about">About</Nav.Link>
           {isLogin ? (
             <>
-            <Nav.Link as={NavLink} to="/chatList">
+            <Nav.Link as={NavLink} to="/chat/list">
             <img src={message} alt="iconmessage" className="icon-message"></img>
             </Nav.Link>
             <NavDropdown 

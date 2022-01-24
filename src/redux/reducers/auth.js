@@ -3,8 +3,8 @@ import { ActionType } from "redux-promise-middleware";
 const initialState = {
     userData: {
         token: JSON.parse(localStorage["vehicle-rental-token"] || null),
-        // photo: "",
-        // roles_id: 0,
+        photo: "",
+        roles_id: 0,
     },
     isPending: false,
     isFulfilled: false,
@@ -30,8 +30,9 @@ const authReducer = (prevState = initialState, action) => {
             const userData = {
                 ...prevState.userData,
                 token: data.result.result.token,
+                roles_id: data.result.result.payload.roles_id,
             }
-            // console.log(data)
+            console.log(data)
             // console.log(data.result.result.token)
             return {
                 ...prevState,

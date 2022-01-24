@@ -1,6 +1,8 @@
 import React, { createRef } from "react";
 // import { Button } from "react-bootstrap";
-import axios from "axios";
+// import axios from "axios";
+import { Modal } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 import { Link } from "react-router-dom";
 import { usersProfile, editUsers } from "../../utils/https/users";
@@ -26,8 +28,9 @@ class Profile extends React.Component {
 
   getDataUser = () => {
     const image = localStorage.getItem("vehicle-rental-photo");
+    const token = localStorage.getItem("vehicle-rental-token");
 
-    usersProfile()
+    usersProfile(token)
       .then((res) => {
         const moment = require("moment");
         let DoB = moment(res.data.result[0].DoB).format("YYYY-MM-DD");
@@ -51,11 +54,9 @@ class Profile extends React.Component {
 
   componentDidMount() {
     this.getDataUser();
-    // console.log(this.getDataUser)
   }
 
   genderChange = (e) => {
-    // console.log(this.setState)
     this.setState({
       chooseGender: e.target.value,
     });
@@ -63,18 +64,18 @@ class Profile extends React.Component {
 
   fileHandler = (e) => {
     // console.log(e.target.files[0]);
-    const uploadPhoto = e.target.files[0];
+    const uploaded = e.target.files[0];
     this.setState({
       chooseFile: e.target.files[0],
-      photoProfile: URL.createObjectURL(uploadPhoto),
+      photoProfile: URL.createObjectURL(uploaded),
     });
   };
 
   submitHandler = (e) => {
     e.preventDefault();
-    const URL = process.env.REACT_APP_HOST + "/users";
-    const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
     const body = new FormData();
+    const token = this.props.token
+    // console.log(body)
     if (this.state.chooseFile !== null) {
       body.append(
         "image",
@@ -82,25 +83,28 @@ class Profile extends React.Component {
         this.state.chooseFile.name,
       );
     }
-    // console.log(e)
-    body.append("name", this.state.name);
-    body.append("email", this.state.email);
+    body.append("name", e.target.name.value);
+    body.append("email", e.target.email.value);
     body.append("gender", this.state.chooseGender);
-    body.append("address", this.state.address);
-    body.append("contact", this.state.contact);
-    body.append("DoB", this.state.DoB);
+    body.append("address", e.target.address.value);
+    body.append("contact", e.target.contact);
+    body.append("DoB", e.target.DoB.value);
 
-    axios
-    .patch(URL, body, {
-      headers: {
-        "x-access-token": token,
-      }
-    })
+    editUsers(body, token)
     .then((res) => {
-      console.log(res)
+      console.log(body)
+      const image = res.data.result.image;
+      if (image !== null && typeof image !== "undefined") {
+        localStorage.setItem("vehicle-rental-photo", image)
+      }
+      toast.success("Profile has been updated", {
+        position: toast.POSITION.TOP_RIGHT,
+      })
+      this.getDataUser();
     })
     .catch((err) => console.error(err))
-  }
+  };
+
   cancelHandler = (e) => {
     const image = this.state.userData.image;
     if (image !== null && typeof image !== "undefined") {
@@ -141,6 +145,7 @@ class Profile extends React.Component {
           <p className="text-profile">Has been active since 2013</p>
         </section>
         <section className="radio-button">
+          <form>
           <input 
           type="radio" 
           name="gender-select" 
@@ -159,6 +164,7 @@ class Profile extends React.Component {
           onChange={this.genderChange.bind(this)}
           />
           <label>Female</label>
+          </form>
         </section>
         <form 
           className="edit-profile"
