@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import { popular } from "../../../utils/https/vehicle";
+import { allVehicle } from "../../../utils/https/vehicle";
 import { Link } from "react-router-dom";
 import imageDefault from "../../../assets/205.jpg";
-import "./Card.css"
 
 
-class cardPopular extends Component {
+class cardBike extends Component {
   state = {
     dataVehicle: []
   }
   componentDidMount() {
-    popular()
+    allVehicle()
     .then((res) => {
-      // console.log(res.data.result)
-      const dataVehicle = res.data.result
+    //   console.log(res)
+      const dataVehicle = res[3].data.result.data
       this.setState({
         dataVehicle: dataVehicle
       })
-      // console.log(dataVehicle)
+      console.log(dataVehicle)
     }).catch((err) => console.error(err))
   }
   render() {
@@ -44,4 +43,4 @@ class cardPopular extends Component {
   }
 }
 
-export default cardPopular;
+export default cardBike

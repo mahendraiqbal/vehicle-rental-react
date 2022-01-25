@@ -8,8 +8,8 @@ import stars from "../../assets/star.png";
 // import circle from "../../assets/circle.png";
 // import plus from "../../assets/plus.png";
 import person from "../../assets/image-person.png";
-import imageDefault from "../../assets/image-van.jpeg";
-// import Card from "../../components/layouts/Card/Card";
+// import imageDefault from "../../assets/205.jpg";
+import Card from "../../components/layouts/Card/Card";
 import Footer from "../../components/layouts/Footer/Footer";
 // import { Redirect } from "react-router-dom";
 import Header from "../../components/layouts/Navbar/Navbar";
@@ -30,7 +30,7 @@ class Home extends React.Component {
       .catch((err) => console.error(err));
   }
   render() {
-    const { brand, city } = this.state.dataVehicle;
+    // const { brand, city } = this.state;
     const roles = JSON.parse(localStorage.getItem("vehicle-rental-roles"))
     // console.log(brand)
     // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
@@ -38,6 +38,7 @@ class Home extends React.Component {
     // // console.log(this.props.auth)
     return (
       <main>
+        
         <Header />
         <section className="container-1">
           <div className="form">
@@ -86,7 +87,8 @@ class Home extends React.Component {
         <section className="popular">
           <h3>Popular in town</h3>
           <div className="card-popular">
-            <div className="image-card">
+            <Card />
+            {/* <div className="image-card">
               <Link to="/detail">
               <img
                 src={imageDefault}
@@ -137,7 +139,7 @@ class Home extends React.Component {
                 <span className="figcaption-city">{city}</span>
               </figcaption>
               </Link>
-            </div>
+            </div> */}
           </div>
         </section>
         { roles === 3 && (

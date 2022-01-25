@@ -13,11 +13,22 @@
     padding: 2% 2%;
 }
 
+.brand-payment-title{
+    font-family: 'Nunito', sans-serif;
+}
+
 .jumbotron-payment{
     background-image: url("../../assets/image-bike-pixie.jpeg");
     background-size: cover;
     width: 100%;
     /* height: 500px; */
+    object-fit: contain;
+}
+
+.info-payment{
+    margin-bottom: 5%;
+    padding-top: 5%;
+    /* font-family: "Nunito" sans-serif; */
 }
 
 .brand-payment-title{
