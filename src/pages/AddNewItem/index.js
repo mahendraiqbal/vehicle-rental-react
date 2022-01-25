@@ -23,7 +23,7 @@ class NewItem extends Component {
           <img src={iconBack} alt="iconBack" className="back-add-item"></img>
           <h1 className="title-additem">Add new item</h1>
         </section>
-        <section className="detail-add-item">
+        <section className="detail-add-itemVehicle">
           <section className="image-add-item"></section>
           <section className="input-add-item">
             <input

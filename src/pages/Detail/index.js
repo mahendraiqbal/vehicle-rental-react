@@ -13,6 +13,10 @@ import next from "../../assets/next.png";
 class index extends React.Component {
   state = {
     counter: 0,
+    dataVehicle: "",
+    imgVehicle1: require("../../assets/205.jpg"),
+    imgVehicle2: require("../../assets/205.jpg"),
+    imgVehicle3: require("../../assets/205.jpg"),
   };
   onClickPrevious = () => {
     const total = this.state.counter;
@@ -26,6 +30,10 @@ class index extends React.Component {
       counter: total + 1,
     });
   };
+  componentDidMount() {
+    // const { match } = this.props;
+    // const vehicleId = match.params.id;
+  }
   render() {
     // console.log(this.state)
     return (

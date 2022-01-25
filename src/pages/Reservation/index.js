@@ -40,8 +40,8 @@ class index extends React.Component {
             ></img>
           </section>
           <section className="detail-reservation-info">
-            <h2 className="brand-reservation">Fixie - Gray Only</h2>
-            <h3 className="city-reservation">Yogyakarta</h3>
+            <h2 className="brand-reservation-title">Fixie - Gray Only</h2>
+            <h3 className="city-reservation-title">Yogyakarta</h3>
             <p className="prepayment-reservation">No Prepayment</p>
             <Counter
               onClickPrev={this.onClickPrevious}

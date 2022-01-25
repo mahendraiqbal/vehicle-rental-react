@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Card from "../../components/layouts/Card/Card";
+// import Card from "../../components/layouts/Card/Card";
 import { allVehicle } from "../../utils/https/vehicle";
-// import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class getProfile extends Component {
   state = {
@@ -29,8 +29,9 @@ class getProfile extends Component {
       })
       .catch((err) => console.error(err));
   }
+  
   render() {
-    // const notify = () => toast.success("Wow so easy!");
+    const notify = () => toast.success("Wow so easy!");
     // const { popular, car, motorbike, bike } = this.state;
     // console.log(this.state)
     return (
@@ -39,22 +40,24 @@ class getProfile extends Component {
       // </div>
     
           <div className="image-card">
-              <Link to="/detail">
+              {/* <Link to="/detail"> */}
               {/* <img
                 src={}
                 alt="imageCard"
                 className="image-popularCard"
               ></img> */}
-              <figcaption className="caption">
+              {/* <figcaption className="caption">
                 <p className="figcaption-brand">{}</p>
                 <p className="figcaption-city">{}</p>
               </figcaption>
               </Link>
-              <Card />
+              <Card /> */}
+               <button onClick={notify}>Notify!</button>
+               <ToastContainer />
             </div>
     //   <div className="notify">
     //   <Card />
-    //   <button onClick={notify}>Notify!</button>
+     
     //   <ToastContainer />
     // </div>
     );

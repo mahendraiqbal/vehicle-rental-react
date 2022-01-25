@@ -9,50 +9,72 @@
   box-sizing: border-box;
 }
 
-.main-title-popular{
+.main-title-popular {
   margin-left: 2%;
-    display: grid;
-    grid-template-columns: 80% 20%;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
-.main-title-car{
+.main-title-car {
   margin-top: 2%;
   margin-left: 2%;
-    display: grid;
-    grid-template-columns: 80% 20%;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
-.main-title-motorbike{
+.main-title-motorbike {
   margin-left: 2%;
   margin-top: 2%;
-    display: grid;
-    grid-template-columns: 80% 20%;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
-.main-title-bike{
+.main-title-bike {
   margin-left: 2%;
   margin-top: 2%;
   margin-bottom: 2%;
-    display: grid;
-    grid-template-columns: 80% 20%;
+  display: grid;
+  grid-template-columns: 80% 20%;
 }
 
-.card-vehicletype{
+.card-vehicletype {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
 }
 
-.viewAll{
+.viewAll {
   border: 0;
-  background-color: #FFFFFF;
-  color: #FB8F1D;
+  background-color: #ffffff;
+  color: #fb8f1d;
   font-size: 15px;
   /* padding-top: 50%; */
 }
 
-.title-vehicle-type{
+.title-vehicle-type {
   font-size: 34px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   margin-top: 3%;
   margin-bottom: 2%;
+}
+
+@media screen and (max-width: 960px) {
+}
+
+@media screen and (max-width: 768px) {
+  .card-vehicletype {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .title-vehicle-type {
+    font-size: 26px;
+    font-family: "Nunito", sans-serif;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .title-vehicle-type {
+    font-size: 20px;
+    font-family: "Nunito", sans-serif;
+  }
 }

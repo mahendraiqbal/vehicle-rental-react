@@ -5,6 +5,9 @@ import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import iconGoogle from "../../assets/icon-google.png"
 
 function index(props) {
@@ -23,6 +26,7 @@ function index(props) {
     })
     .catch((err) => console.error(err));
   };
+  const notify = () => toast.success("You Have Registered");
   return (
     <main>
       <Row>
@@ -30,7 +34,7 @@ function index(props) {
           <img src={imageVan} className="image-van" alt="image_van"></img>
         </Col>
         <Col md={6} className="form">
-          <form className="submitSignUp" onSubmit={submitHandler}>
+          <form className="submitSignUp" onSubmit={submitHandler} onClick={notify}>
             <div className="titleSignUp">Sign Up</div>
           <div className="input-name">
             <input
@@ -60,7 +64,8 @@ function index(props) {
             ></input>
           </div>
           <div className="button-sign-up">
-            <button className="sign-up">Sign Up</button>
+            <button className="sign-up" >Sign Up</button>
+            <ToastContainer />
           </div>
           </form>
           <span>try another way</span>
