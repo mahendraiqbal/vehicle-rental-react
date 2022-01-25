@@ -239,7 +239,7 @@ class Profile extends React.Component {
         
         <section className="button-edit-profile">
           <button type="submit" className="button-save">Save Change</button>
-          <Link to="/editPassword">
+          <Link to="/edit/password">
             <button className="edit-password">Edit Password</button>
           </Link>
           <button type="reset" className="button-cancel">Cancel</button>
