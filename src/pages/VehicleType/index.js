@@ -16,7 +16,6 @@ import CardMotorbike from "../../components/layouts/Card/cardMotorbike";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import "./index.css";
 
-// const array = [1, 4, 9, 16]
 
 class VehicleType extends React.Component {
   state = {
