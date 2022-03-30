@@ -68,6 +68,12 @@
   color: grey;
 }
 
+.counterReservation {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #000000;
+}
+
 @media screen and (max-width: 960px) {
 }
 

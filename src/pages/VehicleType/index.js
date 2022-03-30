@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 
 // import { popular } from "../../utils/https/vehicle"
-import { allVehicle, popular } from "../../utils/https/vehicle"
+import { allVehicle, popular } from "../../utils/https/vehicle";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import imageDefault from "../../assets/205.jpg";
 
 import Header from "../../components/layouts/Navbar/Navbar";
@@ -16,30 +16,29 @@ import CardMotorbike from "../../components/layouts/Card/cardMotorbike";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import "./index.css";
 
-
 class VehicleType extends React.Component {
   state = {
-    dataVehicle: [],
     vehiclePopular: [],
     dataCars: [],
     dataMotorbikes: [],
     dataBikes: [],
-  }
+    params: "",
+  };
 
   componentDidMount() {
     allVehicle()
-    .then(
-      axios.spread((...res) => {
-        console.log()
-        this.setState({
-          vehiclePopular: res[0].data.result,
-          dataCars: res[1].data.result.data[0],
-          dataMotorbikes: res[2].data.result.data,
-          dataBikes: res[3].data.result.data,
+      .then(
+        axios.spread((...res) => {
+          console.log(res);
+          this.setState({
+            vehiclePopular: res[0].data.result,
+            dataCars: res[1].data.result.data,
+            dataMotorbikes: res[2].data.result.data,
+            dataBikes: res[3].data.result.data,
+          });
         })
-      })
-    )
-    .catch((err) => console.error(err))
+      )
+      .catch((err) => console.error(err));
 
     popular()
       .then((res) => {
@@ -74,25 +73,25 @@ class VehicleType extends React.Component {
             <button className="viewAll">View All ></button>
           </div>
           <section className="card-vehicletype">
-           <CardPopular />
+            <CardMotorbike dataVehicle={this.state.vehiclePopular} />
           </section>
         </section>
         <section className="main-title-car">
           <div className="title-vehicle-type">Cars</div>
           <div className="button-vehicle-type">
-            <button className="viewAll">View All ></button>
+            <Link to="/vehicles/cars?page=1&limit=8" className="viewAll">View All ></Link>
           </div>
           <section className="card-vehicletype">
-          <CardCars />
+            <CardMotorbike dataVehicle={this.state.dataCars} />
           </section>
         </section>
         <section className="main-title-motorbike">
           <div className="title-vehicle-type">Motorbike</div>
           <div className="button-vehicle-type">
-            <button className="viewAll">View All ></button>
+            <Link to="/vehicles/motorbikes" className="viewAll">View All ></Link>
           </div>
           <section className="card-vehicletype">
-            <CardMotorbike />
+            <CardMotorbike dataVehicle={this.state.dataMotorbikes} />
           </section>
         </section>
         <section className="main-title-bike">
@@ -101,7 +100,7 @@ class VehicleType extends React.Component {
             <button className="viewAll">View All ></button>
           </div>
           <section className="card-vehicletype">
-            <CardBike />
+            <CardMotorbike dataVehicle={this.state.dataBikes} />
           </section>
         </section>
         <Footer />

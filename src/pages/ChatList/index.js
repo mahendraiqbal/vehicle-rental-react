@@ -22,7 +22,7 @@ function index() {
           <option value="sortby">Sort By</option>
           <option value="readDate">Read Date</option>
           <option value="dateAdded">Date Added</option>
-          <option value="nameChat">Name</option>
+          <option value="nameChat">aku</option>
         </select>
       </section>
       <section className="chat-chatList">

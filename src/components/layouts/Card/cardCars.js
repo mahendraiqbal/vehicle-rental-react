@@ -1,46 +1,34 @@
 import React, { Component } from 'react';
-import { allVehicle } from "../../../utils/https/vehicle";
 import { Link } from "react-router-dom";
 import imageDefault from "../../../assets/205.jpg";
 
+function cardCars(props) {
+  console.log('data props', props)
+  const dataVehicle = props.dataVehicle;
+  const card = [];
 
-class cardCars extends Component {
-  state = {
-    dataVehicle: []
-  }
-  componentDidMount() {
-    allVehicle()
-    .then((res) => {
-    //   console.log(res)
-      const dataVehicle = res[1].data.result.data
-      this.setState({
-        dataVehicle: dataVehicle
-      })
-      console.log(dataVehicle)
-    }).catch((err) => console.error(err))
-  }
-  render() {
-    const { dataVehicle } = this.state
-    return (
-      <>
-        {dataVehicle.map((dataVehicle) => (
-          <>
-             <Link to="/detail">
+  for (let idx = 0; idx < dataVehicle.length; idx++) {
+    const id = dataVehicle[idx].id;
+    const brand = dataVehicle[idx].brand;
+    const city = dataVehicle[idx].city;
+    const element = (
+      <div className="wrapper-cardVehicle" key={"cardMotorbike" + idx}>
+        <Link to={`/detail/${id}`}>
               <img
                 src={imageDefault}
                 alt="imageCard"
                 className="image-popularCard"
               ></img>
               <figcaption className="caption">
-                <span className="figcaption-brand">{dataVehicle.brand}</span>
-                <span className="figcaption-city">{dataVehicle.city}</span>
+                <span className="figcaption-brand">{brand}</span>
+                <span className="figcaption-city">{city}</span>
               </figcaption>
               </Link>
-          </>
-        ))}
-      </>
-    )
+      </div>
+    );
+    card.push(element);
   }
+  return card;
 }
 
-export default cardCars
+export default cardCars;

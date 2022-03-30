@@ -2,12 +2,13 @@ import React, { createRef } from "react";
 // import { Button } from "react-bootstrap";
 // import axios from "axios";
 // import { Modal } from "react-bootstrap";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 import { Link } from "react-router-dom";
 import { usersProfile, editUsers } from "../../utils/https/users";
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
+import { connect } from "react-redux";
 // import ProfileImage from "../../assets/img-profile.png";
 import iconEdit from "../../assets/edit-profile.png";
 import "./Profile.css";
@@ -16,8 +17,6 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.target = createRef(null);
-    // console.log(this.target)
-    // console.log(this.state)
   }
   state = {
     userData: "",
@@ -27,8 +26,10 @@ class Profile extends React.Component {
   };
 
   getDataUser = () => {
-    const image = localStorage.getItem("vehicle-rental-photo");
-    const token = localStorage.getItem("vehicle-rental-token");
+    const image = this.props.photo;
+    const token = this.props.token;
+
+    console.log('hah', token)
 
     usersProfile(token)
       .then((res) => {
@@ -40,7 +41,7 @@ class Profile extends React.Component {
 
         if (image === "null") {
           this.setState({
-            photoProfile: process.env.REACT_APP_HOST + `$/{image}`,
+            photoProfile: process.env.REACT_APP_HOST + `images/profile/${image}`,
           });
         }
         this.setState({
@@ -75,7 +76,7 @@ class Profile extends React.Component {
     e.preventDefault();
     const body = new FormData();
     const token = this.props.token
-    // console.log(body)
+    
     if (this.state.chooseFile !== null) {
       body.append(
         "image",
@@ -89,17 +90,20 @@ class Profile extends React.Component {
     body.append("address", e.target.address.value);
     body.append("contact", e.target.contact.value);
     body.append("DoB", e.target.DoB.value);
+    console.log(body.get("image"))
 
     editUsers(body, token)
     .then((res) => {
-      console.log(body)
+      console.log(res)
       const image = res.data.result.image;
+      // console.log(res)
       if (image !== null && typeof image !== "undefined") {
         localStorage.setItem("vehicle-rental-photo", image)
+        // return image;
       }
-      toast.success("Profile has been updated", {
-        position: toast.POSITION.TOP_RIGHT,
-      })
+      // toast.success("Profile has been updated", {
+      //   position: toast.POSITION.TOP_RIGHT,
+      // })
       this.getDataUser();
     })
     .catch((err) => console.error(err))
@@ -251,4 +255,11 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  console.log(state.auth.userData.token)
+  return {
+    token: state.auth.userData.token,
+  }
+}
+
+export default connect(mapStateToProps)(Profile);

@@ -4,9 +4,99 @@ import Footer from "../../components/layouts/Footer/Footer";
 import iconBack from "../../assets/back.png";
 // import imageBike from "../../assets/image-bike-pixie.jpeg";
 import "./Payment.css";
+import { connect } from "react-redux";
+import { toast } from "react-toastify";
+import {usersProfile} from '../../utils/https/users'
+import {reservation} from '../../utils/https/reservation'
 
 class Payment extends Component {
+  transactionData = this.props.location.state
+
+  state = {
+    userData: {},
+  }
+
+  copyBooking = (bookingCode) => {
+    navigator.clipboard.writeText(bookingCode);
+    toast.success("Bookinf code copied", {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  };
+
+  copyPayment = (paymentCode) => {
+    navigator.clipboard.writeText(paymentCode);
+    toast.success("Payment code copied" , {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  };
+
+  getDataUser = () => {
+    const token = this.props.user.token;
+    
+    usersProfile(token)
+      .then((res) => {
+        console.log('apapaw', res)
+        const data = res.data.result[0];
+        this.setState({
+          userData: data,
+        });
+      })
+      .catch((err) => console.log(err.response))
+  };
+
+  componentDidMount() {
+    this.getDataUser();
+  }
+
+  finishTransaction = () => {
+    const token = this.props.user.token;
+
+    const { counter, dateReservation, payment  } = this.transactionData;
+    // const moment = require("moment");
+    // let date = moment(dateReservation).format("YYYY-MM-DD");
+
+    // let dateSome = new Date(date);
+    // dateSome.setDate(
+    //   dateSome.getDate() + parseInt(this.transactionData.durationRental)
+    // );
+    // let formatDate = dateSome.toISOString().slice(0, 10);
+
+    const body = {
+      user_id: this.state.userData.id,
+      vehicle_id: this.transactionData.dataTransaction.id,
+      quantity: counter,
+      price: payment,
+      // start_date: date,
+      // return_date: formatDate,
+    };
+    reservation(body, token)
+    .then((res) => {
+      console.log(res)
+      toast.success("Payment Success", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      this.props.history.push("/history");
+    })
+    .catch((err) => {
+      console.log(err.response)
+    })
+  }
   render() {
+    console.log(this.props.location.state)
+    console.log('ini mnas',this.props.user)
+    console.log('cekcek', this.transactionData.dataTransaction)
+    console.log('cekcabistuek', this.transactionData)
+    console.log('userData', this.state.userData)
+
+     const moment = require("moment");
+    // console.log('transaction', this.transactionData)
+    const { name, city, type } = this.transactionData.dataTransaction;
+    const { counter, dateReservation, payment } = this.transactionData;
+    const bookingCode = "#FG12009878YZS";
+    const paymentCode = "#FG22009879YZS";
     return (
       <main>
         <Header />
@@ -16,8 +106,8 @@ class Payment extends Component {
         </section>
         <section className="jumbotron-payment">
           <section className="info-payment">
-            <h1 className="brand-payment-title">Fixie - Gray Only</h1>
-            <h2 className="city-payment">Yogyakarta</h2>
+            <h1 className="brand-payment-title">{name}</h1>
+            <h2 className="city-payment">{city}</h2>
             <p className="prepayment-payment">No Prepayment</p>
           </section>
           <section className="button-payment-title">
@@ -51,13 +141,9 @@ class Payment extends Component {
           <section className="order-payment-detail">
             <section className="detail-order-payment">
               <section className="qty-order">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  className="qty-orderPayment"
-                  value="Quantity: 2 bikes"
-                ></input>
+                <p>
+                  Quantity: {counter} {type}
+                </p>
               </section>
               <section className="date-order">
                 <textarea id="identity" name="identity" rows="4" cols="20" className="priceDetails">
@@ -78,9 +164,13 @@ class Payment extends Component {
                 ></input>
               </section>
               <section className="identity-order">
-                <textarea id="identity" name="identity" rows="4" cols="20" className="detailIdentity">
-                  Identity : Samantha Doe (+6290987682) samanthadoe@mail.com
-                </textarea>
+                <p>Identity:</p>
+                <p>
+                  {this.state.userData.name} (
+                    {this.state.userData.contact !== null ? this.state.userData.contact : ""}
+                  )
+                  </p>
+                  <p>{this.state.userData.email}</p>
               </section>
             </section>
           </section>
@@ -97,7 +187,7 @@ class Payment extends Component {
           </section>
         </section>
         <section className="button-finish-payment">
-          <button className="finish-payment">Finish Payment</button>
+          <button className="finish-payment" onClick={this.finishTransaction}>Finish Payment</button>
         </section>
         <Footer />
         <hr />
@@ -113,4 +203,11 @@ class Payment extends Component {
   }
 }
 
-export default Payment;
+const mapStateToProps = (state) => {
+  console.log(state.auth.userData)
+  return {
+    user: state.auth.userData,
+  };
+};
+
+export default connect(mapStateToProps)(Payment);

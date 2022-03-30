@@ -4,11 +4,13 @@ import Counter from "../../components/layouts/Counter";
 import "./viewMoreDetail.css";
 import Footer from "../../components/layouts/Footer/Footer";
 import { Link } from "react-router-dom";
+import {getVehicleById} from '../../utils/https/vehicle';
 
 import buttonback from "../../assets/back.png";
 import bike from "../../assets/image-bike-pixie.jpeg";
 import back from "../../assets/back2.png";
 import next from "../../assets/next.png";
+import { connect } from "react-redux";
 
 class index extends React.Component {
   state = {
@@ -17,6 +19,7 @@ class index extends React.Component {
     imgVehicle1: require("../../assets/205.jpg"),
     imgVehicle2: require("../../assets/205.jpg"),
     imgVehicle3: require("../../assets/205.jpg"),
+    price: 0,
   };
   onClickPrevious = () => {
     const total = this.state.counter;
@@ -31,11 +34,23 @@ class index extends React.Component {
     });
   };
   componentDidMount() {
-    // const { match } = this.props;
-    // const vehicleId = match.params.id;
+    const { match } = this.props;
+    const vehicleId = match.params.id;
+    console.log('props', this.props)
+
+    getVehicleById(vehicleId)
+    .then((res) => {
+      console.log('res', res);
+      this.setState({
+        dataVehicle: res.data.result[0],
+        price: res.data.result[0].price,
+      });
+    })
+    .catch((err) => console.log(err))
   }
   render() {
-    // console.log(this.state)
+    // console.log(this.state.dataVehicle)
+    const { brand, capacity, type, price, city } = this.state.dataVehicle;
     return (
       <main className="container">
         <Header />
@@ -82,17 +97,17 @@ class index extends React.Component {
             </div>
             <div className="detail-vehicle">
               <div className="main-detail">
-                <h2>Fixie - Gray Only</h2>
-                <h3>Yogyakarta</h3>
+                <h2 className="brandVehicle">{brand}</h2>
+                <h3>{city}</h3>
                 <h4>Available</h4>
                 <h5>No prepayment</h5>
-                <p>Capacity: 1 person</p>
-                <p>Type: Bike</p>
+                <p>Capacity: {capacity} person</p>
+                <p>Type: {type}</p>
                 <p>Reservation before 2 PM</p>
               </div>
               <div className="price">
                 <div className="empty"></div>
-                <div className="price-vehicle">Rp 78.000/day</div>
+                <div className="price-vehicle">Rp {price}/day</div>
               </div>
               <div className="button-price">
                 <Counter
@@ -111,7 +126,13 @@ class index extends React.Component {
             </button>
           </div>
           <div className="button-reservation">
-            <Link to="/reservation">
+            <Link to={{
+              pathname: "/reservation",
+              state: {
+                dataVehicle: this.state.dataVehicle,
+                counter: this.state.counter,
+              }
+            }}>
               <button type="button" className="button-reservation">
                 Reservation
               </button>
@@ -137,4 +158,11 @@ class index extends React.Component {
   }
 }
 
-export default index;
+const mapStateToProps = (state) => {
+  // console.log(state.auth.userData.roles_id);
+  return {
+    roles_id: state.auth.userData.roles_id,
+  }
+}
+
+export default connect(mapStateToProps)(index);

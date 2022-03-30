@@ -5,8 +5,8 @@ import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import {regitser} from '../../utils/https/auth';
 
 // import iconGoogle from "../../assets/icon-google.png"
 
@@ -18,15 +18,23 @@ function index(props) {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    const URL = "http://localhost:8080/auth/new";
-    axios
-    .post(URL, body)
-    .then((response) => {
-      props.history.push("/login")
-    })
-    .catch((err) => console.error(err));
+    // const URL = "http://localhost:8080/auth/new";
+    // axios
+    // .post(URL, body)
+    // .then((response) => {
+    //   props.history.push("/login")
+    // })
+    // .catch((err) => console.error(err));
+    regitser(body)
+      .then((res) => {
+        toast.success("Registration Successfull", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 2000,
+        });
+        props.history.push("/login");
+      })
+      .catch((err) => console.log(err));
   };
-  const notify = () => toast.success("You Have Registered");
   return (
     <main>
       <Row>
@@ -34,7 +42,7 @@ function index(props) {
           <img src={imageVan} className="image-van" alt="image_van"></img>
         </Col>
         <Col md={6} className="form">
-          <form className="submitSignUp" onSubmit={submitHandler} onClick={notify}>
+          <form className="submitSignUp" onSubmit={submitHandler}>
             <div className="titleSignUp">Sign Up</div>
           <div className="input-name">
             <input
@@ -65,7 +73,7 @@ function index(props) {
           </div>
           <div className="button-sign-up">
             <button className="sign-up" >Sign Up</button>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
           </div>
           </form>
           <span>try another way</span>

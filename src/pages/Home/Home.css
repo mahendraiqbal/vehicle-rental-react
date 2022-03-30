@@ -340,6 +340,12 @@ h2 {
     height: 15%;
     padding-bottom: 5%;
   }
+  .card-popular{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+
 }
 
 @media screen and (max-width: 520px) {

@@ -31,14 +31,9 @@ class Home extends React.Component {
   }
   render() {
     // const { brand, city } = this.state;
-    const roles = JSON.parse(localStorage.getItem("vehicle-rental-roles"))
-    // console.log(brand)
-    // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
-    // if (!token) return <Redirect to="/login" />;
-    // // console.log(this.props.auth)
+    const roles = this.props.auth.userData.roles_id;
     return (
       <main>
-        
         <Header />
         <section className="container-1">
           <div className="form">
@@ -88,69 +83,15 @@ class Home extends React.Component {
           <h3>Popular in town</h3>
           <div className="card-popular">
             <Card />
-            {/* <div className="image-card">
-              <Link to="/detail">
-              <img
-                src={imageDefault}
-                alt="imageCard"
-                className="image-popularCard"
-              ></img>
-              <figcaption className="caption">
-                <span className="figcaption-brand">{brand}</span>
-                <span className="figcaption-city">{city}</span>
-              </figcaption>
-              </Link>
-            </div>
-            <div className="image-card">
-              <Link to="/detail">
-              <img
-                src={imageDefault}
-                alt="imageCard"
-                className="image-popularCard"
-              ></img>
-              <figcaption className="caption">
-                <span className="figcaption-brand">{brand}</span>
-                <span className="figcaption-city">{city}</span>
-              </figcaption>
-              </Link>
-            </div>
-            <div className="image-card">
-              <Link to="/detail">
-              <img
-                src={imageDefault}
-                alt="imageCard"
-                className="image-popularCard"
-              ></img>
-              <figcaption className="caption">
-                <span className="figcaption-brand">{brand}</span>
-                <span className="figcaption-city">{city}</span>
-              </figcaption>
-              </Link>
-            </div>
-            <div className="image-card">
-              <Link to="/detail">
-              <img
-                src={imageDefault}
-                alt="imageCard"
-                className="image-popularCard"
-              ></img>
-              <figcaption className="caption">
-                <span className="figcaption-brand">{brand}</span>
-                <span className="figcaption-city">{city}</span>
-              </figcaption>
-              </Link>
-            </div> */}
           </div>
         </section>
-        { roles === 3 && (
+        {roles === 3 && (
           <Link to="/vehicle/add">
             <button className="btn btn-dark text-warning add-vehicle w-100 mt-4 mb-4">
               Add vehicle
             </button>
           </Link>
-        )
-
-        }
+        )}
         <section>
           <div className="testimonials">
             <div>

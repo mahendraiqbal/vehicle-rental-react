@@ -1,9 +1,20 @@
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import rpm from "redux-promise-middleware";
-import reducers from "./reducers";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const enhancer = applyMiddleware(rpm, logger);
-const store = createStore(reducers, enhancer);
+import rootReducer from './reducers';
 
-export default store;
+const persistConfig = {
+  key: "root",
+  storage: storage,
+  whitelist: ["auth"],      //state that you want to persist
+};
+const pReducer = persistReducer(persistConfig, rootReducer);
+const enhancers = applyMiddleware(rpm, logger);
+const store = createStore(pReducer, enhancers);
+
+const persistor = persistStore(store);
+
+export { persistor, store };
