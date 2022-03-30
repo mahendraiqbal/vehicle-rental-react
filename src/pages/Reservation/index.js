@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import iconBack from "../../assets/back.png";
 import imageBike from "../../assets/image-bike-pixie.jpeg";
-import Counter from "../../components/layouts/Counter";
+// import Counter from "../../components/layouts/Counter";
 import { Link } from "react-router-dom";
 import "./reservation.css";
 

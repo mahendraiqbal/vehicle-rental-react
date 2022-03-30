@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-import CardPopular from "../../components/layouts/Card/Card";
-import CardCars from "../../components/layouts/Card/cardCars";
-import CardBike from "../../components/layouts/Card/cardBike";
+// import CardPopular from "../../components/layouts/Card/Card";
+// import CardCars from "../../components/layouts/Card/cardCars";
+// import CardBike from "../../components/layouts/Card/cardBike";
 import CardMotorbike from "../../components/layouts/Card/cardMotorbike";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import "./index.css";
