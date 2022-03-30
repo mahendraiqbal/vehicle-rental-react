@@ -26,9 +26,11 @@ import NotFound from "./pages/NotFound";
 import History from "./pages/History";
 import EditPassword from "./pages/EditPassword";
 import vehicles from "./pages/VehicleType/vehicles";
+import { useSelector } from "react-redux";
 
 function Main() {
-  const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
+  // const token = JSON.parse(localStorage.getItem("vehicle-rental-token"));
+  const token = useSelector((state) => state.auth.userData.token);
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Router>

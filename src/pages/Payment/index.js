@@ -5,7 +5,7 @@ import iconBack from "../../assets/back.png";
 // import imageBike from "../../assets/image-bike-pixie.jpeg";
 import "./Payment.css";
 import { connect } from "react-redux";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import {usersProfile} from '../../utils/https/users'
 import {reservation} from '../../utils/https/reservation'
 

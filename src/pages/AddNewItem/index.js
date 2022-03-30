@@ -69,7 +69,7 @@ class NewItem extends Component {
     body.append("type", this.state.type);
     body.append("city", this.state.location);
     body.append("qty", this.state.counter);
-    // forms.append("images", this.state.image);
+    body.append("images", this.state.image);
     body.append("description", this.state.description);
     return body;
   };

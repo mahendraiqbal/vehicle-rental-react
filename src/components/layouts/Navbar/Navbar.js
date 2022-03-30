@@ -18,18 +18,6 @@ class Header extends React.Component {
     photoProfile: require("../../../assets/img-profile.png"),
   };
 
-  // onLogout = (e) => {
-  //   e.preventDefault();
-  //   localStorage.removeItem("vehicle-rental-token");
-  //   localStorage.removeItem("vehicle-rental-photo");
-  //   localStorage.removeItem("vehicle-rental-roles");
-
-  //   this.setState({
-  //     userToken: "",
-  //     isLogin: false,
-  //   });
-  // };
-
   onLogout = () => {
     Swal.fire({
       icon: "warning",

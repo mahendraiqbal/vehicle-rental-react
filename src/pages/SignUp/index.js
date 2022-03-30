@@ -3,12 +3,10 @@ import "./SignUp.css";
 import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import {regitser} from '../../utils/https/auth';
 
-// import iconGoogle from "../../assets/icon-google.png"
 
 function index(props) {
   const submitHandler = (e) => {
@@ -18,13 +16,7 @@ function index(props) {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    // const URL = "http://localhost:8080/auth/new";
-    // axios
-    // .post(URL, body)
-    // .then((response) => {
-    //   props.history.push("/login")
-    // })
-    // .catch((err) => console.error(err));
+
     regitser(body)
       .then((res) => {
         toast.success("Registration Successfull", {

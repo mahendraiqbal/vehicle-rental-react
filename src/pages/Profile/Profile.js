@@ -2,13 +2,14 @@ import React, { createRef } from "react";
 // import { Button } from "react-bootstrap";
 // import axios from "axios";
 // import { Modal } from "react-bootstrap";
-// import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 import { Link } from "react-router-dom";
 import { usersProfile, editUsers } from "../../utils/https/users";
 import Navbar from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
 import { connect } from "react-redux";
+import { editPhoto } from "../../redux/actions/auth";
 // import ProfileImage from "../../assets/img-profile.png";
 import iconEdit from "../../assets/edit-profile.png";
 import "./Profile.css";
@@ -26,10 +27,11 @@ class Profile extends React.Component {
   };
 
   getDataUser = () => {
-    const image = this.props.photo;
+    // console.log('propsnya', this.state.photoProfile)
+    const image = this.props.auth.userData.photo;
     const token = this.props.token;
 
-    console.log('hah', token)
+    console.log("hah", image);
 
     usersProfile(token)
       .then((res) => {
@@ -39,9 +41,10 @@ class Profile extends React.Component {
 
         // console.log(res.data.result[0]);
 
-        if (image === "null") {
+        if (image !== null) {
           this.setState({
-            photoProfile: process.env.REACT_APP_HOST + `images/profile/${image}`,
+            photoProfile:
+              process.env.REACT_APP_HOST + `/images/profile/${image}`,
           });
         }
         this.setState({
@@ -75,14 +78,10 @@ class Profile extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
     const body = new FormData();
-    const token = this.props.token
-    
+    const token = this.props.token;
+
     if (this.state.chooseFile !== null) {
-      body.append(
-        "image",
-        this.state.chooseFile,
-        this.state.chooseFile.name,
-      );
+      body.append("image", this.state.chooseFile, this.state.chooseFile.name);
     }
     body.append("name", e.target.name.value);
     body.append("email", e.target.email.value);
@@ -90,41 +89,41 @@ class Profile extends React.Component {
     body.append("address", e.target.address.value);
     body.append("contact", e.target.contact.value);
     body.append("DoB", e.target.DoB.value);
-    console.log(body.get("image"))
+    console.log(body.get("image"));
 
     editUsers(body, token)
-    .then((res) => {
-      console.log(res)
-      const image = res.data.result.image;
-      // console.log(res)
-      if (image !== null && typeof image !== "undefined") {
-        localStorage.setItem("vehicle-rental-photo", image)
-        // return image;
-      }
-      // toast.success("Profile has been updated", {
-      //   position: toast.POSITION.TOP_RIGHT,
-      // })
-      this.getDataUser();
-    })
-    .catch((err) => console.error(err))
+      .then((res) => {
+        console.log(res);
+        const image = res.data.result.image;
+        // console.log(res)
+        if (image !== null && typeof image !== "undefined") {
+          this.props.dispatch(editPhoto(image));
+          // return image;
+        }
+        toast.success("Profile has been updated", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        this.getDataUser();
+      })
+      .catch((err) => console.error(err));
   };
 
   cancelHandler = (e) => {
     const image = this.state.userData.image;
     if (image !== null && typeof image !== "undefined") {
       this.setState({
-        photoProfile: process.env.REACT_APP_HOST + `$/{image}`,
+        photoProfile: process.env.REACT_APP_HOST + `/images/profile/${image}`,
       });
     }
     this.setState({
       chooseGender: this.state.userData.gender,
-    })
-  }
+    });
+  };
   render() {
     const { name, email, DoB, address, contact } = this.state.userData;
     const { photoProfile, chooseGender } = this.state;
     let isMale = false;
-    if (chooseGender === 1 || chooseGender === '1') isMale = true;
+    if (chooseGender === 1 || chooseGender === "1") isMale = true;
     // console.log(isMale)
     return (
       <main className="container">
@@ -135,10 +134,10 @@ class Profile extends React.Component {
             className="image-profile"
             alt="ProfileImage"
           />
-          <img 
-            src={iconEdit} 
-            className="editProfile" 
-            alt="editIcon" 
+          <img
+            src={iconEdit}
+            className="editProfile"
+            alt="editIcon"
             onClick={() => this.target.current.click()}
           />
         </section>
@@ -150,38 +149,37 @@ class Profile extends React.Component {
         </section>
         <section className="radio-button">
           <form>
-          <input 
-          type="radio" 
-          name="gender-select" 
-          id="male"
-          defaultValue={1}
-          checked={isMale}
-          onChange={this.genderChange.bind(this)}
-          />
-          <label>Male</label>
-          <input 
-          type="radio" 
-          name="gender-select" 
-          id="female"
-          defaultValue={2}
-          checked={!isMale}
-          onChange={this.genderChange.bind(this)}
-          />
-          <label>Female</label>
+            <input
+              type="radio"
+              name="gender-select"
+              id="male"
+              defaultValue={1}
+              checked={isMale}
+              onChange={this.genderChange.bind(this)}
+            />
+            <label>Male</label>
+            <input
+              type="radio"
+              name="gender-select"
+              id="female"
+              defaultValue={2}
+              checked={!isMale}
+              onChange={this.genderChange.bind(this)}
+            />
+            <label>Female</label>
           </form>
         </section>
-        <form 
+        <form
           className="edit-profile"
           onSubmit={this.submitHandler}
           onReset={this.cancelHandler}
         >
-          <input 
+          <input
             type="file"
             onChange={this.fileHandler}
             ref={this.target}
             className="inputUpload"
           />
-
           Contacts
           <div className="edit-email">
             <h5 className="title-edit">Email address :</h5>
@@ -240,14 +238,24 @@ class Profile extends React.Component {
               </div>
             </div>
           </div>
-        
-        <section className="button-edit-profile">
-          <button type="submit" className="button-save">Save Change</button>
-          <Link to="/edit/password">
-            <button className="edit-password">Edit Password</button>
-          </Link>
-          <button type="reset" className="button-cancel">Cancel</button>
-        </section>
+          <section className="button-edit-profile">
+            <div className="button-save">
+              <button type="submit" className="button-save">
+                Save Change{" "}
+              </button>
+              <ToastContainer />
+            </div>
+            <div className="edit-password">
+              <Link to="/edit/password">
+                <button className="edit-password">Edit Password</button>
+              </Link>
+            </div>
+            <div className="button-cancel">
+              <button type="reset" className="button-cancel">
+                Cancel
+              </button>
+            </div>
+          </section>
         </form>
         <Footer />
       </main>
@@ -256,10 +264,11 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.auth.userData.token)
+  console.log(state.auth.userData.token);
   return {
     token: state.auth.userData.token,
-  }
-}
+    auth: state.auth,
+  };
+};
 
 export default connect(mapStateToProps)(Profile);

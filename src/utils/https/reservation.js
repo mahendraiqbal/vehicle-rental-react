@@ -10,13 +10,15 @@ export const reservation = (body, token) => {
 };
 
 export const getTransactions = (token) => {
-    const url = process.env.REACT_APP_HOST + 'transactions/byId';
+    const url = process.env.REACT_APP_HOST + '/transactions/byId';
     return axios.get(url, {
-        'x-access-token': token,
+        headers: {
+            "x-access-token": token,
+        }
     });
 };
 
 export const deleteTransactions = (id) => {
-    const url = process.env.REACT_APP_HOST + 'transactions';
+    const url = process.env.REACT_APP_HOST + '/transactions';
     return axios.delete(url + id)
 }

@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-import { InputGroup, FormControl, Button, NavDropdown, Form } from "react-bootstrap";
+import {
+  InputGroup,
+  FormControl,
+  Button,
+  NavDropdown,
+  Form,
+} from "react-bootstrap";
 import "./history.css";
 
 import image from "../../assets/image-van.jpeg";
 import defaultImage from "../../assets/205.jpg";
-
+import {
+  getTransactions,
+  deleteTransactions,
+} from "../../utils/https/reservation";
+import { useSelector } from "react-redux";
 
 function History() {
+  const token = useSelector((state) => state.auth.userData.token);
+  const [data, setData] = useState([]);
+  const [deleteId, setDeletId] = useState();
+  const [isShow, setIsShow] = useState(false);
+
+  useEffect(() => {
+    getTransactions(token)
+      .then((res) => {
+        console.log("result", res.data.result);
+        setData(res.data.result);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  }, [token]);
+
+  const handledelete = () => {
+    deleteTransactions(deleteId)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
   return (
     <main>
       <Header />
@@ -52,36 +88,48 @@ function History() {
               Please finish your payment for vespa for Vespa Rental Jogja{" "}
             </p>
             <hr className="finishing" />
-            <p className="finishAttempt">
-               Your payment has been confirmed!
-            </p>
+            <p className="finishAttempt">Your payment has been confirmed!</p>
             <hr className="finishing" />
           </section>
           <p className="day">A week ago</p>
-          <section className="detailHistory">
-            <img src={defaultImage} alt="imagevehicle" className="imageHistoryDetail"/>
-            <section className="detailHistoryImage">
-              <p className="brandHistory">Vespa Matic</p>
-              <p className="dateHistory">Jan 18 to 21 2021</p>
-              <p className="prepaymentHistory">Prepayment : Rp.245.000</p>
-              <p className="returnedHistory">Has been returned</p>
-            </section>
-            <section className="radioButtonHistoryImage">
-              <Form>
-              {["checkbox"].map((type) => (
-                <div key={`inline-${type}`} className="mb-3">
-                  <Form.Check
-                    inline
-                    // label="1"
-                    name="group1"
-                    type={type}
-                    id={`inline-${type}-1`}
-                  />
-                </div>
-              ))}
-            </Form>
-            </section>
-          </section>
+
+          {data.length > 0 &&
+            data.map((datas, idx) => {
+              return (
+                <>
+                  <section className="detailHistory">
+                    <img
+                      src={defaultImage}
+                      alt="imagevehicle"
+                      className="imageHistoryDetail"
+                    />
+                    <section className="detailHistoryImage" key={idx}>
+                      <p className="brandHistory">{datas.Name_Vehicle}</p>
+                      <p className="dateHistory">Jan 18 to 21 2021</p>
+                      {/* <p className="prepaymentHistory">
+                        Prepayment : Rp.245.000
+                      </p> */}
+                      <p className="returnedHistory">Has been returned</p>
+                    </section>
+                    <section className="radioButtonHistoryImage">
+                      <Form>
+                        {["checkbox"].map((type) => (
+                          <div key={`inline-${type}`} className="mb-3">
+                            <Form.Check
+                              inline
+                              // label="1"
+                              name="group1"
+                              type={type}
+                              id={`inline-${type}-1`}
+                            />
+                          </div>
+                        ))}
+                      </Form>
+                    </section>
+                  </section>
+                </>
+              );
+            })}
         </section>
         <section className="new-arrivalHistory">
           <p className="title-ImageHistory">New Arrival</p>

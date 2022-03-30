@@ -13,3 +13,10 @@ export const logoutAction = () => {
     type: ACTION_STRING.authLogout,
   };
 };
+
+export const editPhoto = (image) => {
+  return {
+    type: ACTION_STRING.authUserPhoto,
+    payload: image,
+  }
+}
