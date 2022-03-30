@@ -7,7 +7,7 @@ import {persistor} from './redux/store';
 
 import Profile from "./pages/Profile/Profile";
 import SignUp from "./pages/SignUp/index";
-import Login from "./pages/Login";
+import Login from "./pages/Login/index";
 import Home from "./pages/Home/index";
 import Detail from "./pages/Detail/index";
 import getProfile from "./pages/Profile/getProfile";
@@ -63,37 +63,37 @@ function Main() {
           {/* <Route path="/getImage" component={getImage} /> */}
           <Route path="/detail/:id" component={Detail} />;
           {/* <Route path="/vehicles/:category" component={ViewAll}/> */}
-          {/* <Route path="/profile" render={(routerProps) => {
+          <Route path="/profile" render={(routerProps) => {
             if (!token) return <Redirect to="/login" />
             return <Profile {...routerProps} />
           }}
-          /> */}
-          <Route path="/profile" component={Profile} />;
+          />
+          {/* <Route path="/profile" component={Profile} />; */}
           <Route path="/getProfile" component={getProfile} />;
-          {/* <Route 
+          <Route 
           path="/reservation" 
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />
             return <Reservation {...routerProps} />
           }}
-          /> */}
-          <Route path="/reservation" component={Reservation} />;
-          {/* <Route 
+          />
+          {/* <Route path="/reservation" component={Reservation} />; */}
+          <Route 
           path="/payment"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />
             return <Payment {...routerProps} />
           }}
-          /> */}
-          <Route path="/payment" component={Payment} />;
-          {/* <Route 
+          />
+          {/* <Route path="/payment" component={Payment} />; */}
+          <Route 
           path="/vehicle/add" 
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <NewItem {...routerProps} />
           }}
-          /> */}
-          <Route path="/vehicle/add" component={NewItem}/>
+          />
+          {/* <Route path="/vehicle/add" component={NewItem}/> */}
           <Route 
           path="/vehicle/edit" 
           render={(routerProps) => {
@@ -115,14 +115,14 @@ function Main() {
             return <ChatDetail {...routerProps} />;
           }}
           />
-          {/* <Route 
+          <Route 
           path="/history"
           render={(routerProps) => {
             if (!token) return <Redirect to="/login" />;
             return <History {...routerProps} />;
           }}
-          /> */}
-          <Route path="/history" component={History}/>
+          />
+          {/* <Route path="/history" component={History}/> */}
           <Route 
           path="/edit/password"
           render={(routerProps) => {
