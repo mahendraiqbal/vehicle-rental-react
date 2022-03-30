@@ -12,17 +12,14 @@ import "./history.css";
 
 import image from "../../assets/image-van.jpeg";
 import defaultImage from "../../assets/205.jpg";
-import {
-  getTransactions,
-  deleteTransactions,
-} from "../../utils/https/reservation";
+import { getTransactions } from "../../utils/https/reservation";
 import { useSelector } from "react-redux";
 
 function History() {
   const token = useSelector((state) => state.auth.userData.token);
   const [data, setData] = useState([]);
-  const [deleteId, setDeletId] = useState();
-  const [isShow, setIsShow] = useState(false);
+  // const [deleteId, setDeletId] = useState();
+  // const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     getTransactions(token)
@@ -35,15 +32,15 @@ function History() {
       });
   }, [token]);
 
-  const handledelete = () => {
-    deleteTransactions(deleteId)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  // const handledelete = () => {
+  //   deleteTransactions(deleteId)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.response);
+  //     });
+  // };
 
   return (
     <main>

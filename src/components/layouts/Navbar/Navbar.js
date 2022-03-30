@@ -1,7 +1,7 @@
 import React from "react";
 import icon from "../../../assets/icon.png";
 import message from "../../../assets/message.png";
-import iconProfile from "../../../assets/man.png";
+// import iconProfile from "../../../assets/man.png";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";

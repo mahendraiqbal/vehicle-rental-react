@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addVehicle } from "../../utils/https/vehicle";
+// import { addVehicle } from "../../utils/https/vehicle";
 import { connect } from "react-redux";
 
 import Header from "../../components/layouts/Navbar/Navbar";
@@ -7,7 +7,7 @@ import Footer from "../../components/layouts/Footer/Footer";
 import iconBack from "../../assets/back.png";
 // import Counter from "../../components/layouts/Counter";
 import "./AddNew.css";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import axios from "axios";
 
 class NewItem extends Component {

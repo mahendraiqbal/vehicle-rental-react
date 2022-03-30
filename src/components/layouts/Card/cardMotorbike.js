@@ -48,9 +48,9 @@
 
 // export default cardMotorbike;
 
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import imageDefault from "../../../assets/205.jpg";
+// import imageDefault from "../../../assets/205.jpg";
 
 function cardMotorbike(props) {
   console.log("data props", props);

@@ -5,7 +5,7 @@ import iconBack from "../../assets/back.png";
 // import imageBike from "../../assets/image-bike-pixie.jpeg";
 import "./Payment.css";
 import { connect } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import {usersProfile} from '../../utils/https/users'
 import {reservation} from '../../utils/https/reservation'
 
@@ -53,7 +53,7 @@ class Payment extends Component {
   finishTransaction = () => {
     const token = this.props.user.token;
 
-    const { counter, dateReservation, payment  } = this.transactionData;
+    const { counter, payment  } = this.transactionData;
     // const moment = require("moment");
     // let date = moment(dateReservation).format("YYYY-MM-DD");
 
@@ -91,12 +91,12 @@ class Payment extends Component {
     console.log('cekcabistuek', this.transactionData)
     console.log('userData', this.state.userData)
 
-     const moment = require("moment");
+    //  const moment = require("moment");
     // console.log('transaction', this.transactionData)
     const { name, city, type } = this.transactionData.dataTransaction;
-    const { counter, dateReservation, payment } = this.transactionData;
-    const bookingCode = "#FG12009878YZS";
-    const paymentCode = "#FG22009879YZS";
+    const { counter } = this.transactionData;
+    // const bookingCode = "#FG12009878YZS";
+    // const paymentCode = "#FG22009879YZS";
     return (
       <main>
         <Header />
