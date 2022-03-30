@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Coffee Shop App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web Application to manage products and transactions for customer based on React Js.
+<br />
+![image](https://drive.google.com/uc?export=view&id=10kTxAo6zr33NX9Xhh8Bb3GN4vp57Zr-M)
+<br />
 
-## Available Scripts
+[![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
+[![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
+[![chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
+[![bootstrap](https://img.shields.io/npm/v/bootstrap?label=bootstrap)](https://www.npmjs.com/package/react-bootstrap)
+[![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
+[![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
+<br />
 
-In the project directory, you can run:
+## Deployment
 
-### `npm start`
+https://arkacoffeeshop.netlify.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshoots
+![image](https://drive.google.com/uc?export=view&id=1DNiTTWhnIz6aRUUw8AHKvoIk0ZXJXwZK)
+![image](https://drive.google.com/uc?export=view&id=1qwuIiy2uYtKdmbQ5qbg8NhTRRK0xpQEY)
+![image](https://drive.google.com/uc?export=view&id=1Zso85maMay-9c4Zxo9cgu7gGshk4lCb5)
+![image](https://drive.google.com/uc?export=view&id=11NOmVabGMvBAjUA06BXWgVE5Bx-Lha3L)
+![image](https://drive.google.com/uc?export=view&id=1G56R9epU32QAv1K8H0O2uJl1I9ObRK74)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add Vehicle
+- Edit Vehicle
+- Sign Up
+- Sign In
+- Forgot Password
+- Update Profile
+- Transactions
+- History Management
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository repository https://github.com/mahendraiqbal/vehicle-rental-react
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Download all packages
 
-### `npm run eject`
+3. Configure .env file 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    REACT_APP_HOST = "https://vehicle-rental-aws.herokuapp.com"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Run npm start 
+    
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Related
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Here are some related projects
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Backend - Vehicle Rental](https://github.com/mahendraiqbal/vehicle-rental)
