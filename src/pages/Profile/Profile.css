@@ -42,7 +42,7 @@ p {
   width: 200px;
   height: 200px;
   margin: auto;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 
@@ -62,7 +62,7 @@ p {
   text-align: center;
   border-radius: 100%;
   position: relative;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .edit-profile {

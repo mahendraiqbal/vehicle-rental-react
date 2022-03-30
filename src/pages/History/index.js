@@ -9,17 +9,19 @@ import {
   Form,
 } from "react-bootstrap";
 import "./history.css";
+import {toast} from 'react-toastify'
 
 import image from "../../assets/image-van.jpeg";
 import defaultImage from "../../assets/205.jpg";
-import { getTransactions } from "../../utils/https/reservation";
+import { getTransactions, deleteTransactions } from "../../utils/https/reservation";
 import { useSelector } from "react-redux";
+import { Modal } from "react-bootstrap";
 
 function History() {
   const token = useSelector((state) => state.auth.userData.token);
   const [data, setData] = useState([]);
-  // const [deleteId, setDeletId] = useState();
-  // const [isShow, setIsShow] = useState(false);
+  const [deleteId, setDeleteId] = useState();
+  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     getTransactions(token)
@@ -32,15 +34,43 @@ function History() {
       });
   }, [token]);
 
-  // const handledelete = () => {
-  //   deleteTransactions(deleteId)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.response);
-  //     });
-  // };
+  const handleClose = () => {
+    setIsShow(false);
+  };
+  const handleShow = () => {
+    setIsShow(true);
+    console.log("id :", data.id);
+    setDeleteId(data.id);
+  };
+
+  const handledelete = () => {
+    deleteTransactions(deleteId)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  const deleteHandle = () => {
+    let id = deleteId;
+    deleteTransactions(id)
+      .then((res) => {
+        console.log(res);
+        toast.info("Deleted Success");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Delete Failed");
+        setIsShow(false);
+      });
+    // .then((response) => {
+    //   const del = historyList.filter((index) => id !== index.id);
+    //   setHistoryList(del);
+    // });
+  };
+
 
   return (
     <main>
@@ -109,25 +139,46 @@ function History() {
                       <p className="returnedHistory">Has been returned</p>
                     </section>
                     <section className="radioButtonHistoryImage">
-                      <Form>
-                        {["checkbox"].map((type) => (
-                          <div key={`inline-${type}`} className="mb-3">
-                            <Form.Check
-                              inline
-                              // label="1"
-                              name="group1"
-                              type={type}
-                              id={`inline-${type}-1`}
-                            />
-                          </div>
-                        ))}
-                      </Form>
+                      <div className="col col-sm-1 col-md-1">
+                  <p>{datas.id}</p>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="checkboxNoLabel"
+                    value={datas.id}
+                    aria-label="..."
+                    onClick={() => {
+                      handleShow();
+                      setDeleteId(datas.id);
+                      console.log(datas.id);
+                    }}
+                  />
+                </div>
                     </section>
                   </section>
                 </>
               );
             })}
         </section>
+        <Modal
+        className="aside-title-history-bottom"
+        show={isShow}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>Are you Sure you want to delete this item?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="warning" onClick={() => deleteHandle()}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
         <section className="new-arrivalHistory">
           <p className="title-ImageHistory">New Arrival</p>
           <section className="imageHistoryFirstCard">

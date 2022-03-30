@@ -3,7 +3,7 @@ import "./index.css";
 import Footer from "../../components/layouts/Footer/Footer";
 import back from "../../assets/back-forgot.png";
 import { Link } from "react-router-dom";
-import { forgotPass } from "../../utils/https/auth";
+import { resetPassword } from "../../utils/https/auth";
 import { toast, ToastContainer } from "react-toastify";
 
 function ForgotPassword(props) {
@@ -11,17 +11,19 @@ function ForgotPassword(props) {
     e.preventDefault();
     const body = {
       email: e.target.email.value,
+      otp: e.target.otp.value,
+      password: e.target.password.value
     };
 
-    forgotPass(body)
+    resetPassword(body)
       .then((res) => {
         toast.success("Please Check Your Email", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 2000,
         });
-        props.history.push("/checkOtp");
+        props.history.push("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response));
   };
 
   return (
@@ -44,6 +46,20 @@ function ForgotPassword(props) {
             id="email"
             placeholder="Input your email address"
             name="email"
+          />
+          <input
+            type="text"
+            className="inputEmailForgot"
+            id="otp"
+            placeholder="Input your otp"
+            name="otp"
+          />
+          <input
+            type="password"
+            className="inputEmailForgot"
+            id="password"
+            placeholder="Input your passowrd"
+            name="password"
           />
           <br />
           <button className="button-send">Send Link</button>

@@ -29,7 +29,7 @@ export const verifyOTP = (body) => {
   return axios.post(verifyURL, body);
 };
 
-const resetURL = process.env.REACT_APP_HOST + "/auth/reset-password";
+const resetURL = process.env.REACT_APP_HOST + "/auth/resetPassword";
 export const resetPassword = (body) => {
   return axios.post(resetURL, body);
 };

@@ -4,30 +4,15 @@ import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 // import {login} from '../../utils/https/auth';
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/actions/auth";
+import Loading from '../../components/LoadingComponent/LoadingComp';
 
 
 function index(props) {
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   const body = {
-  //     email: e.target.email.value,
-  //     password: e.target.password.value,
-  //   };
-
-  //   login(body)
-  //     .then((res) => {
-  //       toast.success("Login Successfull", {
-  //         position: toast.POSITION.TOP_RIGHT,
-  //         autoClose: 2000,
-  //       });
-  //       props.history.push("/");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const auth = useSelector((state) => state.auth);
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -37,6 +22,8 @@ function index(props) {
     email: "",
     password: "",
   })
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [isLoading, setIsloading] = useState(false);
 
   const handleChange = (e) => {
     setValues({
@@ -55,6 +42,9 @@ function index(props) {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
+    if (auth.isPending === true ) {
+      setIsloading(true);
+    }
     if (auth.isFulfilled === true) {
       toast.success("Login success", {
         position: toast.POSITION.TOP_RIGHT,
@@ -64,6 +54,17 @@ function index(props) {
     }
   }, [auth, props])
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    if (auth.isRejected === true) {
+      setIsloading(false);
+      toast.error("Wrong Email/Password", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+      });
+    }
+  }, [auth])
+
   return (
     <main>
       <Row>
@@ -72,6 +73,7 @@ function index(props) {
         </Col>
         <Col md={6} className="form">
           <form className="submitSignUp" onSubmit={submitHandler}>
+            <ToastContainer />
             <div className="titleSignUp">Login</div>
           <div className="input-name">
           </div>
@@ -96,10 +98,12 @@ function index(props) {
             ></input>
           </div>
           <div className="button-sign-up">
-            <button className="sign-up" >Login</button>
-            {/* <ToastContainer /> */}
+            <button className="sign-up" >{/*Login*/} {isLoading ? <Loading /> : "Login"}</button>
           </div>
           </form>
+          <Link to="forgotPassword">
+            <p className="forgot-password">Forgot Password?</p>
+          </Link>
           <span>try another way</span>
           <div className="button-sign-up-google">
             <button className="sign-up-google">Login With Google</button>

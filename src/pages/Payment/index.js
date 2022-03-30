@@ -5,7 +5,7 @@ import iconBack from "../../assets/back.png";
 // import imageBike from "../../assets/image-bike-pixie.jpeg";
 import "./Payment.css";
 import { connect } from "react-redux";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import {usersProfile} from '../../utils/https/users'
 import {reservation} from '../../utils/https/reservation'
 
@@ -18,7 +18,7 @@ class Payment extends Component {
 
   copyBooking = (bookingCode) => {
     navigator.clipboard.writeText(bookingCode);
-    toast.success("Bookinf code copied", {
+    toast.success("Booking code copied", {
       position: "top-right",
       autoClose: 2000,
     });
@@ -81,15 +81,11 @@ class Payment extends Component {
       this.props.history.push("/history");
     })
     .catch((err) => {
+      toast.error("Payment Failed")
       console.log(err.response)
     })
   }
   render() {
-    console.log(this.props.location.state)
-    console.log('ini mnas',this.props.user)
-    console.log('cekcek', this.transactionData.dataTransaction)
-    console.log('cekcabistuek', this.transactionData)
-    console.log('userData', this.state.userData)
 
     //  const moment = require("moment");
     // console.log('transaction', this.transactionData)
@@ -100,6 +96,7 @@ class Payment extends Component {
     return (
       <main>
         <Header />
+        <ToastContainer />
         <section className="title-payment">
           <img src={iconBack} alt="iconBack" className="back-payment"></img>
           <h1 className="title-payment">Payment</h1>

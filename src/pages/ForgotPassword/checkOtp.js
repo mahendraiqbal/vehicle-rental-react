@@ -3,7 +3,7 @@ import "./index.css";
 import Footer from "../../components/layouts/Footer/Footer";
 import back from "../../assets/back-forgot.png";
 import { Link } from "react-router-dom";
-import { forgotPass } from "../../utils/https/auth";
+import { verifyOTP } from "../../utils/https/auth";
 import { toast, ToastContainer } from "react-toastify";
 
 function ForgotPassword(props) {
@@ -11,17 +11,18 @@ function ForgotPassword(props) {
     e.preventDefault();
     const body = {
       email: e.target.email.value,
+      otp: e.target.otp.value,
     };
 
-    forgotPass(body)
+    verifyOTP(body)
       .then((res) => {
-        toast.success("Please Check Your Email", {
+        toast.success("Your OTP is Valid go to Reset Password", {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 2000,
         });
-        props.history.push("/checkOtp");
+        props.history.push("/resetPassword");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.response));
   };
 
   return (
@@ -44,6 +45,13 @@ function ForgotPassword(props) {
             id="email"
             placeholder="Input your email address"
             name="email"
+          />
+          <input
+            type="text"
+            className="inputEmailForgot"
+            id="otp"
+            placeholder="Input your OTP"
+            name="otp"
           />
           <br />
           <button className="button-send">Send Link</button>

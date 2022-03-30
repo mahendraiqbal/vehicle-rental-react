@@ -78,11 +78,10 @@ class Header extends React.Component {
   }
   render() {
     const { isLogin } = this.state;
-    // console.log(isLogin);
     return (
       <Navbar>
         <Container className="header">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <img src={icon} alt="icon" className="icon-header"></img>
           </Navbar.Brand>
           <Nav className="navbar">

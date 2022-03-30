@@ -11,7 +11,9 @@ import Login from "./pages/Login/index";
 import Home from "./pages/Home/index";
 import Detail from "./pages/Detail/index";
 import getProfile from "./pages/Profile/getProfile";
-import ForgotPassword from "./pages/ForgotPassword";
+import ForgotPassword from "./pages/ForgotPassword/index";
+import CheckOtp from './pages/ForgotPassword/checkOtp';
+import ResetPassword from './pages/ForgotPassword/resetPassword';
 import VehicleType from "./pages/VehicleType/index";
 import MoreDetail from "./pages/ViewMoreDetail";
 import Reservation from "./pages/Reservation";
@@ -56,6 +58,20 @@ function Main() {
           render={(routerProps) => {
             if (token) return <Redirect to="/login" />;
             return <ForgotPassword {...routerProps} />;
+          }}
+          />
+          <Route 
+          path="/checkOtp" 
+          render={(routerProps) => {
+            if (token) return <Redirect to="/login" />;
+            return <CheckOtp {...routerProps} />;
+          }}
+          />
+          <Route 
+          path="/resetPassword" 
+          render={(routerProps) => {
+            if (token) return <Redirect to="/login" />;
+            return <ResetPassword {...routerProps} />;
           }}
           />
           <Route path="/vehicle/type" component={VehicleType} />
