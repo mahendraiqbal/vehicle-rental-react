@@ -51,7 +51,7 @@ class index extends React.Component {
   render() {
     // console.log(this.state.dataVehicle)
     const { brand, capacity, type, price, city } = this.state.dataVehicle;
-    const roles_id = this.props.roles_id;
+    // const roles_id = this.props.roles_id;
     // console.log('role', roles_id)
 
     return (

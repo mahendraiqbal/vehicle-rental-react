@@ -43,15 +43,15 @@ function History() {
     setDeleteId(data.id);
   };
 
-  const handledelete = () => {
-    deleteTransactions(deleteId)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
+  // const handledelete = () => {
+  //   deleteTransactions(deleteId)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.response);
+  //     });
+  // };
 
   const deleteHandle = () => {
     let id = deleteId;
