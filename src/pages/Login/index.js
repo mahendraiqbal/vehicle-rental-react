@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from "react";
 import "./Login.css";
 import imageVan from "../../assets/image-van.jpeg";
@@ -10,19 +11,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../redux/actions/auth";
 import Loading from '../../components/LoadingComponent/LoadingComp';
+import {validateLogin} from '../../helpers/validation'
 
 
 function index(props) {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const auth = useSelector((state) => state.auth);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useDispatch();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [values, setValues] = useState({
     email: "",
     password: "",
   })
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [error, setError] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false)
   const [isLoading, setIsloading] = useState(false);
 
   const handleChange = (e) => {
@@ -33,15 +33,24 @@ function index(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setError(validateLogin(values));
+    const validateBody = validateLogin(values);
+
     const body = {
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    dispatch(loginAction(body));
+    if (Object.keys(validateBody).length === 0) {
+      setIsSubmit(true);
+      dispatch(loginAction(body));
+    }
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
+    if (Object.keys(error).length === 0 && isSubmit) {
+      console.log("submit", isSubmit);
+      console.log("useEf", error);
+    }
     if (auth.isPending === true ) {
       setIsloading(true);
     }
@@ -52,18 +61,16 @@ function index(props) {
       });
       setTimeout(() => props.history.push("/"), 3000);
     }
-  }, [auth, props])
+  }, [auth, error, isSubmit, props])
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (auth.isRejected === true) {
       setIsloading(false);
-      toast.error("Wrong Email/Password", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-      });
+      let errors = {};
+      error.form = "Wrong Email/Password";
+      setError(errors);
     }
-  }, [auth])
+  }, [auth, error])
 
   return (
     <main>
@@ -85,8 +92,11 @@ function index(props) {
               placeholder="Email"
               name="email"
               onChange={handleChange}
-            ></input>
+            />
           </div>
+          {error.email && (
+            <div className="text-danger fw-bold error">{error.email}</div>
+          )}
           <div className="input-password">
             <input
               type="password"
@@ -95,15 +105,21 @@ function index(props) {
               placeholder="Password"
               name="password"
               onChange={handleChange}
-            ></input>
+            />
           </div>
+          {error.password && (
+            <div className="text-danger fw-bold error">{error.password}</div>
+          )}
+          <Link to="forgotPassword">
+            <p className="forgot-password">Forgot Password?</p>
+          </Link>
+          {error.form && (
+            <div className="text-danger fw-bold error text-center">{error.form}</div>
+          )}
           <div className="button-sign-up">
             <button className="sign-up" >{/*Login*/} {isLoading ? <Loading /> : "Login"}</button>
           </div>
           </form>
-          <Link to="forgotPassword">
-            <p className="forgot-password">Forgot Password?</p>
-          </Link>
           <span>try another way</span>
           <div className="button-sign-up-google">
             <button className="sign-up-google">Login With Google</button>

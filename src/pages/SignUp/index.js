@@ -4,8 +4,9 @@ import imageVan from "../../assets/image-van.jpeg";
 import icon from "../../assets/icon.png";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import {regitser} from '../../utils/https/auth';
+// import {validateSignup} from '../../helpers/validation';
 
 
 function index(props) {
@@ -34,6 +35,7 @@ function index(props) {
           <img src={imageVan} className="image-van" alt="image_van"></img>
         </Col>
         <Col md={6} className="form">
+          <ToastContainer  />
           <form className="submitSignUp" onSubmit={submitHandler}>
             <div className="titleSignUp">Sign Up</div>
           <div className="input-name">
@@ -65,7 +67,6 @@ function index(props) {
           </div>
           <div className="button-sign-up">
             <button className="sign-up" >Sign Up</button>
-            {/* <ToastContainer /> */}
           </div>
           </form>
           <span>try another way</span>

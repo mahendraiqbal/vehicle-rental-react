@@ -1,17 +1,13 @@
 import React from "react";
 import axios from "axios";
 
-// import { popular } from "../../utils/https/vehicle"
 import { allVehicle, popular } from "../../utils/https/vehicle";
+import Loading from '../../components/Loading/index'
 
 import { Link } from "react-router-dom";
-// import imageDefault from "../../assets/205.jpg";
 
 import Header from "../../components/layouts/Navbar/Navbar";
 import Footer from "../../components/layouts/Footer/Footer";
-// import CardPopular from "../../components/layouts/Card/Card";
-// import CardCars from "../../components/layouts/Card/cardCars";
-// import CardBike from "../../components/layouts/Card/cardBike";
 import CardMotorbike from "../../components/layouts/Card/cardMotorbike";
 import { InputGroup, FormControl, Button } from "react-bootstrap";
 import "./index.css";
@@ -23,6 +19,7 @@ class VehicleType extends React.Component {
     dataMotorbikes: [],
     dataBikes: [],
     params: "",
+    isLoading: false,
   };
 
   componentDidMount() {
@@ -44,6 +41,7 @@ class VehicleType extends React.Component {
       .then((res) => {
         // console.log("RESPONSE", res.data.result);
         this.setState({
+          isLoading: true,
           dataVehicle: res.data.result[3],
         });
       })
@@ -53,6 +51,7 @@ class VehicleType extends React.Component {
     // const { image } = this.state.vehicleData;
     // const { brand, city } = this.state.dataVehicle;
     // const { brandCar, cityCar } = this.state.dataCars;
+    const { isLoading } = this.state;
     return (
       <main>
         <Header />
@@ -76,15 +75,22 @@ class VehicleType extends React.Component {
             <CardMotorbike dataVehicle={this.state.vehiclePopular} />
           </section>
         </section>
+        {isLoading ? (
+
         <section className="main-title-car">
           <div className="title-vehicle-type">Cars</div>
           <div className="button-vehicle-type">
-            <Link to="/vehicles/cars?page=1&limit=8" className="viewAll">View All ></Link>
+            <Link to="/vehicles/cars" className="viewAll">View All ></Link>
           </div>
           <section className="card-vehicletype">
             <CardMotorbike dataVehicle={this.state.dataCars} />
           </section>
         </section>
+        ) : (
+          <Loading />
+        )}
+        {isLoading ? (
+
         <section className="main-title-motorbike">
           <div className="title-vehicle-type">Motorbike</div>
           <div className="button-vehicle-type">
@@ -94,6 +100,11 @@ class VehicleType extends React.Component {
             <CardMotorbike dataVehicle={this.state.dataMotorbikes} />
           </section>
         </section>
+        ) : (
+          <Loading />
+        )}
+        {isLoading ? (
+
         <section className="main-title-bike">
           <div className="title-vehicle-type">Bike</div>
           <div className="button-vehicle-type">
@@ -103,6 +114,9 @@ class VehicleType extends React.Component {
             <CardMotorbike dataVehicle={this.state.dataBikes} />
           </section>
         </section>
+        ) : (
+          <Loading />
+        )}
         <Footer />
       </main>
     );
