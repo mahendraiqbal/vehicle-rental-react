@@ -35,6 +35,7 @@ function index(props) {
       email: e.target.email.value,
       password: e.target.password.value,
     };
+    console.log('cek body', validateBody)
     if (Object.keys(validateBody).length === 0) {
       setIsSubmit(true);
       regitser(body)

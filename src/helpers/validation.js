@@ -1,17 +1,17 @@
 export const validateSignup = (values) => {
     let errors = {};
-    const validPhone = new RegExp("^([0-9]{10,12})$");
+    // const validPhone = new RegExp("^([0-9]{10,12})$");
     const validEmail = new RegExp(
       /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
     );
     const validPass = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{6,}$/);
-  
-    // phone
-    if (!values.phone) {
-      errors.phone = "Phone number is required";
-    } else if (!validPhone.test(values.phone)) {
-      errors.phone = "Phone number must contain 10-12 digits";
-    }
+      
+    // name
+    // if (!values.name) {
+    //   errors.name = "Name is required";
+    // } else if (!validPhone.test(values.name)) {
+    //   errors.name = "Name is Required";
+    // }
   
     // email
     if (!values.email) {
