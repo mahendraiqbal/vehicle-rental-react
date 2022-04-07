@@ -18,10 +18,15 @@ Web Application to manage products and transactions for customer based on React 
 https://arkacoffeeshop.netlify.app/
 
 ## Screenshoots
+## Home
 ![image](https://drive.google.com/uc?export=view&id=1DNiTTWhnIz6aRUUw8AHKvoIk0ZXJXwZK)
+## Product
 ![image](https://drive.google.com/uc?export=view&id=1qwuIiy2uYtKdmbQ5qbg8NhTRRK0xpQEY)
+## Profile
 ![image](https://drive.google.com/uc?export=view&id=1Zso85maMay-9c4Zxo9cgu7gGshk4lCb5)
+## Cart
 ![image](https://drive.google.com/uc?export=view&id=11NOmVabGMvBAjUA06BXWgVE5Bx-Lha3L)
+## History
 ![image](https://drive.google.com/uc?export=view&id=1G56R9epU32QAv1K8H0O2uJl1I9ObRK74)
 
 
