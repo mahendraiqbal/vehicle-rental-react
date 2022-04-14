@@ -46,16 +46,24 @@ https://vehicles-rental-react.netlify.app/
 
 1. Clone this repository
 ```bash
-  https://github.com/mahendraiqbal/vehicle-rental-react
+  $ https://github.com/mahendraiqbal/vehicle-rental-react
 ```
 
 2. Download all packages
+```bash
+  $ npm install
+```
 
 3. Configure .env file 
+```bash
+  REACT_APP_HOST = "https://vehicle-rental-aws.herokuapp.com"
+```
 
-    REACT_APP_HOST = "https://vehicle-rental-aws.herokuapp.com"
+4. Run npm start
 
-4. Run npm start 
+```bash
+  $ npm start
+```
     
 
 ## Related
