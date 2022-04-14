@@ -15,7 +15,7 @@ Web Application to manage products and transactions for customer based on React 
 
 ## Deployment
 
-https://arkacoffeeshop.netlify.app/
+https://vehicles-rental-react.netlify.app/
 
 ## Screenshoots
 ## Home
@@ -44,7 +44,10 @@ https://arkacoffeeshop.netlify.app/
 
 ## Installation
 
-1. Clone this repository repository https://github.com/mahendraiqbal/vehicle-rental-react
+1. Clone this repository
+```bash
+  https://github.com/mahendraiqbal/vehicle-rental-react
+```
 
 2. Download all packages
 
